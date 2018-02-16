@@ -1,6 +1,7 @@
 /**
- * Example for using a AWS Lambda Function
- * Move a file when it appears in a S3 bucket to another S3 bucket
+ * AWS Lambda Function S3 Move Java example
+ * It handles an AWS Lambda function that moves a file
+ * when it appears in a S3 bucket to another S3 bucket
  */
 
 package example;
