@@ -21,9 +21,9 @@ This code was written for Java 1.8 and AWS SDK for Java 1.11.x.
 Configure your AWS access keys.
 
 Create an AWS lambda function:
-* Name:    SOME_NAME
+* Name: SOME_NAME
 * Runtime: Java 8
-* Role:    lambda-basic-execution
+* Role: lambda-basic-execution
 * The triggers: Nothing
 * The resources the function's role has access: Amazon CloudWatch Logs
 
@@ -31,16 +31,18 @@ Handler function: example.Hello::handleRequest
 
 Upload the Java JAR file.
 
-Artifact:
-
-\out\artifacts\awslambdahello2_jar\awslambdahello2.jar
+Artifact: \out\artifacts\awslambdahello2_jar\awslambdahello2.jar
 
 Create and configure a Test event:
 
 Input JSON file content:
+
 {
+
   "firstName": "Peter",
+
   "lastName": "Parker"
+
 }
 
 Test the AWS Lambda function:
