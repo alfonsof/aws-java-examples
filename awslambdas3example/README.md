@@ -21,71 +21,12 @@ Configure your AWS access keys.
 
 Create a S3 bucket.
 
-Create a IAM Policy: Policy-VM-buckets
-
-Content of the IAM policy:
-
-```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Action": [
-                "s3:GetObject"
-            ],
-            "Resource": [
-                "arn:aws:s3:::sourcevm/*"
-            ]
-        },
-        {
-            "Effect": "Allow",
-            "Action": [
-                "s3:PutObject"
-            ],
-            "Resource": [
-                "arn:aws:s3:::targetvm/*"
-            ]
-        },
-        {
-            "Sid": "Stmt1430872844000",
-            "Effect": "Allow",
-            "Action": [
-                "cloudwatch:*"
-            ],
-            "Resource": [
-                "*"
-            ]
-        },
-        {
-            "Sid": "Stmt1430872852000",
-            "Effect": "Allow",
-            "Action": [
-                "logs:*"
-            ],
-            "Resource": [
-                "*"
-            ]
-        }
-    ]
-}
-```
-
-Create a role: Role-VM-buckets
-
-This role uses the policy: Policy-VM-buckets
-
 Create an AWS lambda function:
 * Name: SOME_NAME
 * Runtime: Java 8
 * Role: Role-VM-buckets
 * The triggers: S3 (with access to the S3 bucket)
 * The resources the function's role has access: Amazon CloudWatch Logs
-
-Basic Settings for the lambda function:
-
-* Memory (MB): 1024
-* Timeout: 10 sec
 
 Handler function:
 
