@@ -1,6 +1,6 @@
 # AWS S3 Move Java example
 
-This folder contains an example of a Java application that manages S3 buckets on AWS (Amazon Web Services).
+This folder contains a Java application example that handles S3 buckets on AWS (Amazon Web Services).
 Move a file from a S3 bucket to another S3 bucket.
 
 
@@ -21,7 +21,7 @@ Configure your AWS access keys.
 
 Create a S3 bucket for the source and another S3 bucket for the target.
 
-Copy a files to the S3 bucket.
+Copy a file to the source S3 bucket.
 
 Run the code:
 
@@ -31,4 +31,4 @@ java -jar out/artifacts/awss3move_jar/awss3move.jar
 
 Test the application:
 
-You should see information of the files stored in the S3 bucket.
+The file from the source S3 bucket should be copied to the target S3 bucket and deleted in the source S3 bucket.
