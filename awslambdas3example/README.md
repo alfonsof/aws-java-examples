@@ -25,7 +25,7 @@ Create an AWS lambda function:
 * Name: SOME_NAME
 * Runtime: Java 8
 * Role: Role-VM-buckets
-* The triggers: S3 (with access to the S3 bucket)
+* The triggers: S3 (with access to the S3 bucket and Event type: ObjectCreated)
 * The resources the function's role has access: Amazon CloudWatch Logs
 
 Handler function:
