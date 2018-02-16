@@ -1,5 +1,5 @@
 /**
- * S3Copy is an example for managing AWS S3 buckets
+ * S3Copy is an example that handles S3 buckets on AWS
  * Copy a file from a S3 bucket to another S3 bucket
  */
 
