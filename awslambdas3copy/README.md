@@ -1,7 +1,7 @@
 # AWS Lambda Function S3 Copy Java example
 
-This folder contains an example of a Lambda Function in Java on AWS (Amazon Web Services)
-that Copy a file when it appears in a S3 bucket to another S3 bucket.
+This folder contains an AWS Lambda Function example in Java on AWS (Amazon Web Services).
+It handles an AWS Lambda function that copies a file when it appears in a S3 bucket to another S3 bucket.
 
 
 
@@ -21,8 +21,7 @@ Configure your AWS access keys.
 
 Create a S3 bucket for the source and another S3 bucket for the target.
 
-Create IAM Policy:
-Policy-VM-buckets
+Create a IAM Policy: Policy-VM-buckets
 
 Content of the IAM policy:
 
@@ -72,22 +71,38 @@ Content of the IAM policy:
 }
 ```
 
-Create role:
-Role-VM-buckets
+Create a role: Role-VM-buckets
 
-Basic Settings for the lambda funtion:
-Memory (MB): 1024
-Timeout: 10 sec
+This role uses the policy: Policy-VM-buckets
 
-Run the code in a AWS lambda function.
+Create an AWS lambda function:
+* Name: SOME_NAME
+* Runtime: Java 8
+* Role: Role-VM-buckets
+* The triggers: S3 (with access to the S3 bucket)
+* The resources the function's role has access: Amazon CloudWatch, Amazon CloudWatch Logs, Amazon S3
 
-Artifact:
-\out\artifacts\awslambdas3copy_jar\awslambdas3copy.jar
+Basic Settings for the lambda function:
+
+* Memory (MB): 1024
+* Timeout: 10 sec
 
 Handler function:
+
+```
 example.S3Copy::handleRequest
+```
+
+Upload the Java JAR file.
+
+Artifact: 
+
+```
+\out\artifacts\awslambdas3copy_jar\awslambdas3copy.jar
+```
 
 Test the function:
-Copy a file in the source S3 bucket.
-The file should be copied to the target S3 bucket.
 
+Copy a file in the source S3 bucket.
+
+The file from the source S3 bucket should be copied to the target S3 bucket.
