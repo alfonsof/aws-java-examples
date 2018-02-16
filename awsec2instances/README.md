@@ -1,6 +1,6 @@
 # AWS EC2 Instances Java example
 
-This folder contains a Java application example that handles AWS EC2 instances on AWS (Amazon Web Services).
+This folder contains a Java application example that handles EC2 instances on AWS (Amazon Web Services).
 
 
 
