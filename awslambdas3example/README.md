@@ -1,7 +1,7 @@
 # AWS Lambda Function S3 Java example
 
 This folder contains an AWS Lambda Function example in Java on AWS (Amazon Web Services).
-Handle an AWS simple Lambda function that sends information to the log about a file when it appears in a S3 bucket.
+It handles an AWS simple Lambda function that sends information to the log about a file when it appears in a S3 bucket.
 
 
 
@@ -81,11 +81,11 @@ Create an AWS lambda function:
 * Role: Role-VM-buckets
 * The triggers: S3 (with access to the S3 bucket)
 * The resources the function's role has access: Amazon CloudWatch Logs
-* Basic Settings for the lambda function:
 
-Memory (MB): 1024
+Basic Settings for the lambda function:
 
-Timeout: 10 sec
+* Memory (MB): 1024
+* Timeout: 10 sec
 
 Handler function:
 
