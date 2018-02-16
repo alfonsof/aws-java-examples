@@ -26,19 +26,22 @@ Create an AWS lambda function:
 * The triggers: Nothing
 * The resources the function's role has access: Amazon CloudWatch Logs
 
-Handler function:
-example.Hello::myHandler
+Handler function: example.Hello::myHandler
 
 Upload the Java JAR file.
-Artifact:
-\out\artifacts\awslambdahello_jar\awslambdahello.jar
+
+Artifact: \out\artifacts\awslambdahello_jar\awslambdahello.jar
 
 Create and configure a Test event:
+
 Input file content:
+
 "Peter"
 
 Test the AWS Lambda function:
+
 Run the code in a AWS lambda function using the test button.
+
 You should see the message "Hello Peter" in the log.
 
 
