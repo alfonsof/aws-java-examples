@@ -1,6 +1,7 @@
 /**
- * Example for using a AWS Lambda Function
- * Send information to the log about a file when it appears in a S3 bucket
+ * AWS Lambda Function S3 Java example
+ * It handles an AWS simple Lambda function that sends information to the log about a file
+ * when it appears in a S3 bucket
  */
  
 package example;
