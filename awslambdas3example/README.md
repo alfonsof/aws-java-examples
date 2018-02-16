@@ -1,7 +1,7 @@
-# AWS Lambda Function Java example
+# AWS Lambda Function S3 Java example
 
-This folder contains an example of a Lambda Function in Java on AWS (Amazon Web Services).
-Send information to the log about a file when it appears in a S3 bucket.
+This folder contains an AWS Lambda Function example in Java on AWS (Amazon Web Services).
+Handle an AWS simple Lambda function that sends information to the log about a file when it appears in a S3 bucket.
 
 
 
@@ -19,17 +19,96 @@ This code was written for Java 1.8 and AWS SDK for Java 1.11.x.
 
 Configure your AWS access keys.
 
-Create a S3 bucket for the source.
+Create a S3 bucket.
 
-Run the code in a AWS lambda function.
+Create a IAM Policy: Policy-VM-buckets
 
-Artifact:
-\out\artifacts\awslambdas3example_jar\awslambdas3example.jar
+Content of the IAM policy:
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetObject"
+            ],
+            "Resource": [
+                "arn:aws:s3:::sourcevm/*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:PutObject"
+            ],
+            "Resource": [
+                "arn:aws:s3:::targetvm/*"
+            ]
+        },
+        {
+            "Sid": "Stmt1430872844000",
+            "Effect": "Allow",
+            "Action": [
+                "cloudwatch:*"
+            ],
+            "Resource": [
+                "*"
+            ]
+        },
+        {
+            "Sid": "Stmt1430872852000",
+            "Effect": "Allow",
+            "Action": [
+                "logs:*"
+            ],
+            "Resource": [
+                "*"
+            ]
+        }
+    ]
+}
+```
+
+Create a role: Role-VM-buckets
+
+This role uses the policy: Policy-VM-buckets
+
+Create an AWS lambda function:
+* Name: SOME_NAME
+* Runtime: Java 8
+* Role: Role-VM-buckets
+* The triggers: S3 (with access to the S3 bucket)
+* The resources the function's role has access: Amazon CloudWatch Logs
+* Basic Settings for the lambda function:
+
+Memory (MB): 1024
+
+Timeout: 10 sec
 
 Handler function:
-example.Hello::handleRequest
+
+```
+example.S3example::handleRequest
+```
+
+Upload the Java JAR file.
+
+Artifact: 
+
+```
+\out\artifacts\awslambdas3example_jar\awslambdas3example.jar
+```
 
 Test the function:
-Copy a file in the source S3 bucket.
-Watch the log file and you should see information about the file.
 
+Copy a file in the source S3 bucket.
+
+You should see the next messages in the log:
+
+```
+"Input: INPUT"
+"Bucket: BUCKET_NAME"
+"File: FILE_NAME"
+```
