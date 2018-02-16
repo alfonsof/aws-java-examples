@@ -1,7 +1,7 @@
 # AWS S3 List Java example
 
-This folder contains an example of a Java application that manages S3 buckets on AWS (Amazon Web Services).
-Copy a file from a S3 bucket to another S3 bucket.
+This folder contains a Java application example that handles S3 buckets on AWS (Amazon Web Services).
+List information about the files in a S3 bucket.
 
 
 
@@ -19,16 +19,16 @@ This code was written for Java 1.8 and AWS SDK for Java 1.11.x.
 
 Configure your AWS access keys.
 
-Create a S3 bucket for the source and another S3 bucket for the target.
+Create a S3 bucket.
 
-Copy a files to the S3 bucket.
+Copy some files to the S3 bucket.
 
 Run the code:
 
 ```
-java -jar out/artifacts/awss3copy_jar/awss3copy.jar
+java -jar out/artifacts/awss3list_jar/awss3list.jar
 ```
 
 Test the application:
 
-The file from the source S3 bucket should be copied to the target S3 bucket and deleted in the source S3 bucket.
+You should see the list of files stored in the S3 bucket.
