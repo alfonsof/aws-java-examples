@@ -1,7 +1,7 @@
 # AWS Lambda Function other Hello World Java example
 
 This folder contains an AWS Lambda Function example in Java on AWS (Amazon Web Services).
-Handle an AWS simple Lambda function that show the content of the call to the lambda function and return a message with this content,
+It handles handles a simple AWS Lambda function that show the content of the call to the lambda function and return a message including this content,
 using classes for Request and Response.
 
 
