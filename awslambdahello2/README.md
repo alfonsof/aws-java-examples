@@ -21,7 +21,7 @@ This code was written for Java 1.8 and AWS SDK for Java 1.11.x.
 Configure your AWS access keys.
 
 Create an AWS lambda function:
-* Name:    <name>
+* Name:    SOME_NAME
 * Runtime: Java 8
 * Role:    lambda-basic-execution
 * The triggers: Nothing
