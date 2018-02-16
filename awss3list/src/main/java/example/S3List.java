@@ -1,5 +1,5 @@
 /**
- * S3List is an example for managing AWS S3 buckets
+ * S3Copy is an example that handles S3 buckets on AWS
  * List information about the files in a S3 bucket
  */
 
