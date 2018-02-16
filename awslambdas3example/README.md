@@ -108,7 +108,7 @@ Copy a file in the source S3 bucket.
 You should see the next messages in the log:
 
 ```
-"Input: INPUT"
+"Input: LAMBDA_INPUT"
 "Bucket: BUCKET_NAME"
 "File: FILE_NAME"
 ```
