@@ -1,5 +1,5 @@
 /**
- * Examples in order to manage AWS EC2 instances
+ * Example of how to handle AWS EC2 instances
  * Using the AWSHelper class
  */
 
