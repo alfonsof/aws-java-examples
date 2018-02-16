@@ -31,12 +31,17 @@ Handler function: example.Hello::handleRequest
 
 Upload the Java JAR file.
 
-Artifact: \out\artifacts\awslambdahello2_jar\awslambdahello2.jar
+Artifact: 
+
+```
+\out\artifacts\awslambdahello2_jar\awslambdahello2.jar
+```
 
 Create and configure a Test event:
 
 Input JSON file content:
 
+```
 {
 
   "firstName": "Peter",
@@ -44,6 +49,7 @@ Input JSON file content:
   "lastName": "Parker"
 
 }
+```
 
 Test the AWS Lambda function:
 
