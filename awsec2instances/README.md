@@ -1,6 +1,6 @@
 # AWS EC2 Instances Java example
 
-This folder contains an example of a Java application that manages EC2 instances on AWS (Amazon Web Services).
+This folder contains an example of a Java application that handle AWS EC2 instances on AWS (Amazon Web Services).
 
 
 
@@ -24,3 +24,12 @@ Run the code:
 java -jar out/artifacts/awsec2instances_jar/awsec2instances.jar
 ```
 
+You can select an option in the menu in order to run every command:
+
+* 1 = Describe all instances
+* 2 = Run new instance
+* 3 = Describe instance
+* 4 = Start instance
+* 5 = Stop instance
+* 6 = Reboot instance
+* 7 = Terminate instance
