@@ -57,9 +57,10 @@ Run the code in a AWS lambda function using the test button.
 
 You should see the next messages in the log:
 
+```
 "First Name: Peter"
 
 "Last Name: Parker"
 
 "Hello Peter Parker."
-
+```
