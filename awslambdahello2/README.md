@@ -27,7 +27,11 @@ Create an AWS lambda function:
 * The triggers: Nothing
 * The resources the function's role has access: Amazon CloudWatch Logs
 
-Handler function: example.Hello::handleRequest
+Handler function:
+
+```
+example.Hello::handleRequest
+```
 
 Upload the Java JAR file.
 
