@@ -1,6 +1,8 @@
 /**
- * Example to manage AWS Lambda Functions
- * Simple example in Java
+ * AWS Lambda Function Hello World Java example
+ * Handle an AWS simple Lambda function
+ * that show the content of the call to the lambda function
+ * and return a message with this content
  */
 
 package example;
