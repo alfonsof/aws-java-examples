@@ -7,7 +7,7 @@ This repo contains Java code examples on the Amazon Web Services (AWS) platform.
 
 ## Quick start
 
-The code is in several folders. You can see the list:
+The code for the samples is contained in individual folders on this repository. You can see the list:
 
 **Compute - Amazon EC2:**
 * [awsec2instances](/awsec2instances) - AWS EC2 instances: Example of how to handle AWS EC2 instances
