@@ -21,7 +21,7 @@ This code was written for Java 1.8 and AWS SDK for Java 1.11.x.
 
 * Create a S3 bucket for the source and another S3 bucket for the target.
 
-* Create a IAM Policy: Policy-VM-buckets
+* Create an IAM Policy: Policy-VM-buckets:
 
   Content of the IAM policy:
 
@@ -71,7 +71,7 @@ This code was written for Java 1.8 and AWS SDK for Java 1.11.x.
   }
   ```
 
-* Create a role: Role-VM-buckets
+* Create a role: Role-VM-buckets:
 
   This role uses the policy: Policy-VM-buckets
 
