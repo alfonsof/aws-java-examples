@@ -16,12 +16,12 @@ This code was written for Java 1.8 and AWS SDK for Java 1.11.x.
 
 ## Using the code
 
-Configure your AWS access keys.
+* Configure your AWS access keys.
 
-Run the code:
+* Run the code:
 
 ```
-java -jar out/artifacts/awsec2instances_jar/awsec2instances.jar
+java -jar awsec2instances.jar
 ```
 
 You can select an option in the menu in order to run every command:
