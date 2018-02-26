@@ -15,12 +15,24 @@ import com.amazonaws.services.s3.model.ObjectListing;
 import com.amazonaws.services.s3.model.S3ObjectSummary;
 
 public class S3List {
-    private static String bucketName = "s3afb";  // Bucket name
 
     public static void main(String[] args) throws IOException {
+
+        String bucketName;  // Bucket name
+
+        if (args.length < 1) {
+            System.out.println("Not enough parameters. Proper Usage is: java -jar s3list.jar <BUCKET_NAME>");
+            System.exit(1);
+        }
+
+        bucketName      = args[0];
+
+        System.out.println("Bucket: " + bucketName);
+
+        // Instantiates a client
         AmazonS3 s3client = AmazonS3ClientBuilder.defaultClient();
+
         try {
-            System.out.println("Bucket: " + bucketName);
             System.out.println("Listing objects");
 
             ObjectListing objectListing = s3client.listObjects(new ListObjectsRequest()
