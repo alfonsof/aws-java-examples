@@ -38,7 +38,7 @@ This code was written for Java 1.8 and AWS SDK for Java 1.11.x.
   Artifact: 
 
   ```
-  \out\artifacts\awslambdahello2_jar\awslambdahello2.jar
+  awslambdahello2.jar
   ```
 
 * Create and configure a Test event:
