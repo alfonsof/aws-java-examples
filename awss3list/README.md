@@ -17,18 +17,22 @@ This code was written for Java 1.8 and AWS SDK for Java 1.11.x.
 
 ## Using the code
 
-Configure your AWS access keys.
+* Configure your AWS access keys.
 
-Create a S3 bucket.
+* Create a S3 bucket.
 
-Copy some files to the S3 bucket.
+* Copy some files to the S3 bucket.
 
-Run the code:
+* Run the code:
 
-```
-java -jar out/artifacts/awss3list_jar/awss3list.jar
-```
+  You must provide 1 parameter:
+  
+  <BUCKET_NAME> = Bucket name
 
-Test the application:
+  ```
+  java -jar awss3list.jar bucket-name
+  ```
 
-You should see the list of files stored in the S3 bucket.
+* Test the application:
+
+  You should see the list of files stored in the S3 bucket.
