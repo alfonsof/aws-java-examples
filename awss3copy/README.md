@@ -33,10 +33,8 @@ This code was written for Java 1.8 and AWS SDK for Java 1.11.x.
   
   <DESTINATION_BUCKET> = Destination bucket name
 
-  <DESTINATION_FILE>   = Destination file name
-
   ```
-  java -jar awss3copy.jar source-bucket source-file destination-bucket destination-file
+  java -jar awss3copy.jar source-bucket source-file destination-bucket
   ```
 
 * Test the application:
