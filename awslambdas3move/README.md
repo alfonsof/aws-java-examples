@@ -17,93 +17,93 @@ This code was written for Java 1.8 and AWS SDK for Java 1.11.x.
 
 ## Using the code
 
-Configure your AWS access keys.
+* Configure your AWS access keys.
 
-Create a S3 bucket for the source and another S3 bucket for the target.
+* Create a S3 bucket for the source and another S3 bucket for the target.
 
-Create a IAM Policy: Policy-VM-buckets
+* Create a IAM Policy: Policy-VM-buckets:
 
-Content of the IAM policy:
+  Content of the IAM policy:
 
-```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Action": [
-                "s3:GetObject",
-                "s3:DeleteObject"
-            ],
-            "Resource": [
-                "arn:aws:s3:::sourcevm/*"
-            ]
-        },
-        {
-            "Effect": "Allow",
-            "Action": [
-                "s3:PutObject"
-            ],
-            "Resource": [
-                "arn:aws:s3:::targetvm/*"
-            ]
-        },
-        {
-            "Sid": "Stmt1430872844000",
-            "Effect": "Allow",
-            "Action": [
-                "cloudwatch:*"
-            ],
-            "Resource": [
-                "*"
-            ]
-        },
-        {
-            "Sid": "Stmt1430872852000",
-            "Effect": "Allow",
-            "Action": [
-                "logs:*"
-            ],
-            "Resource": [
-                "*"
-            ]
-        }
-    ]
-}
-```
+  ```
+  {
+      "Version": "2012-10-17",
+      "Statement": [
+          {
+              "Effect": "Allow",
+              "Action": [
+                  "s3:GetObject",
+                  "s3:DeleteObject"
+              ],
+              "Resource": [
+                  "arn:aws:s3:::sourcevm/*"
+              ]
+          },
+          {
+              "Effect": "Allow",
+              "Action": [
+                  "s3:PutObject"
+              ],
+              "Resource": [
+                  "arn:aws:s3:::targetvm/*"
+              ]
+          },
+          {
+              "Sid": "Stmt1430872844000",
+              "Effect": "Allow",
+              "Action": [
+                  "cloudwatch:*"
+              ],
+              "Resource": [
+                  "*"
+              ]
+          },
+          {
+              "Sid": "Stmt1430872852000",
+              "Effect": "Allow",
+              "Action": [
+                  "logs:*"
+              ],
+              "Resource": [
+                  "*"
+              ]
+          }
+      ]
+  }
+  ```
 
-Create a role: Role-VM-buckets
+* Create a role: Role-VM-buckets:
 
-This role uses the policy: Policy-VM-buckets
+  This role uses the policy: Policy-VM-buckets
 
-Create an AWS lambda function:
-* Name: SOME_NAME
-* Runtime: Java 8
-* Role: Role-VM-buckets
-* The triggers: S3 (with access to the S3 bucket and Event type: ObjectCreated)
-* The resources the function's role has access: Amazon CloudWatch, Amazon CloudWatch Logs, Amazon S3
+* Create an AWS lambda function:
+  * Name: SOME_NAME
+  * Runtime: Java 8
+  * Role: Role-VM-buckets
+  * The triggers: S3 (with access to the S3 bucket and Event type: ObjectCreated)
+  * The resources the function's role has access: Amazon CloudWatch, Amazon CloudWatch Logs, Amazon S3
 
-Basic Settings for the lambda function:
+  Basic Settings for the lambda function:
 
-* Memory (MB): 1024
-* Timeout: 10 sec
+  * Memory (MB): 1024
+  * Timeout: 10 sec
 
-Handler function:
+  Handler function:
 
-```
-example.S3Move::handleRequest
-```
+  ```
+  example.S3Move::handleRequest
+  ```
 
-Upload the Java JAR file.
+* Upload the Java JAR file.
 
-Artifact: 
+  Artifact: 
 
-```
-\out\artifacts\awslambdas3move_jar\awslambdas3move.jar
-```
+  ```
+  awslambdas3move.jar
+  ```
 
-Test the function:
+* Test the function:
 
-Copy a file in the source S3 bucket.
+  Copy a file in the source S3 bucket.
 
-The file from the source S3 bucket should be copied to the target S3 bucket and deleted in the source S3 bucket.
+  The file from the source S3 bucket should be copied to the target S3 bucket and deleted in the source S3 bucket.
