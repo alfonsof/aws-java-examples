@@ -18,53 +18,53 @@ This code was written for Java 1.8 and AWS SDK for Java 1.11.x.
 
 ## Using the code
 
-Configure your AWS access keys.
+* Configure your AWS access keys.
 
-Create an AWS lambda function:
-* Name: SOME_NAME
-* Runtime: Java 8
-* Role: lambda-basic-execution
-* The triggers: Nothing
-* The resources the function's role has access: Amazon CloudWatch Logs
+* Create an AWS lambda function:
+  * Name: SOME_NAME
+  * Runtime: Java 8
+  * Role: lambda-basic-execution
+  * The triggers: Nothing
+  * The resources the function's role has access: Amazon CloudWatch Logs
 
-Handler function:
+  Handler function:
 
-```
-example.Hello::handleRequest
-```
+  ```
+  example.Hello::handleRequest
+  ```
 
-Upload the Java JAR file.
+* Upload the Java JAR file.
 
-Artifact: 
+  Artifact: 
 
-```
-\out\artifacts\awslambdahello2_jar\awslambdahello2.jar
-```
+  ```
+  \out\artifacts\awslambdahello2_jar\awslambdahello2.jar
+  ```
 
-Create and configure a Test event:
+* Create and configure a Test event:
 
-Input JSON file content:
+  Input JSON file content:
 
-```
-{
+  ```
+  {
 
-  "firstName": "Peter",
+    "firstName": "Peter",
 
-  "lastName": "Parker"
+    "lastName": "Parker"
 
-}
-```
+  }
+  ```
 
-Test the AWS Lambda function:
+* Test the AWS Lambda function:
 
-Run the code in a AWS lambda function using the test button.
+  Run the code in a AWS lambda function using the test button.
 
-You should see the next messages in the log:
+  You should see the next messages in the log:
 
-```
-"First Name: Peter"
+  ```
+  "First Name: Peter"
 
-"Last Name: Parker"
+  "Last Name: Parker"
 
-"Hello Peter Parker."
-```
+  "Hello Peter Parker."
+  ```
