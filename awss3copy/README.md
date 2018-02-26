@@ -25,7 +25,7 @@ This code was written for Java 1.8 and AWS SDK for Java 1.11.x.
 
 * Run the code:
 
-  You must provide 4 parameters:
+  You must provide 3 parameters:
   
   <SOURCE_BUCKET>      = Source bucket name
 
