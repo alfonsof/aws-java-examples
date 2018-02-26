@@ -17,39 +17,39 @@ This code was written for Java 1.8 and AWS SDK for Java 1.11.x.
 
 ## Using the code
 
-Configure your AWS access keys.
+* Configure your AWS access keys.
 
-Create a S3 bucket.
+* Create a S3 bucket.
 
-Create an AWS lambda function:
-* Name: SOME_NAME
-* Runtime: Java 8
-* Role: Role-VM-buckets
-* The triggers: S3 (with access to the S3 bucket and Event type: ObjectCreated)
-* The resources the function's role has access: Amazon CloudWatch Logs
+* Create an AWS lambda function:
+  * Name: SOME_NAME
+  * Runtime: Java 8
+  * Role: Role-VM-buckets
+  * The triggers: S3 (with access to the S3 bucket and Event type: ObjectCreated)
+  * The resources the function's role has access: Amazon CloudWatch Logs
 
-Handler function:
+  Handler function:
 
-```
-example.S3example::handleRequest
-```
+  ```
+  example.S3example::handleRequest
+  ```
 
-Upload the Java JAR file.
+* Upload the Java JAR file.
 
-Artifact: 
+  Artifact: 
 
-```
-\out\artifacts\awslambdas3example_jar\awslambdas3example.jar
-```
+  ```
+  awslambdas3example.jar
+  ```
 
-Test the function:
+* Test the function:
 
-Copy a file in the source S3 bucket.
+  Copy a file in the source S3 bucket.
 
-You should see the next messages in the log:
+  You should see the next messages in the log:
 
-```
-"Input: LAMBDA_INPUT"
-"Bucket: BUCKET_NAME"
-"File: FILE_NAME"
-```
+  ```
+  "Input: LAMBDA_INPUT"
+  "Bucket: BUCKET_NAME"
+  "File: FILE_NAME"
+  ```
