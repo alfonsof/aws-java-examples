@@ -6,45 +6,47 @@
 
 package example;
 
-import com.amazonaws.services.lambda.runtime.Context;
-import com.amazonaws.services.lambda.runtime.RequestHandler;
-import com.amazonaws.services.lambda.runtime.events.S3Event;
-import com.amazonaws.services.lambda.runtime.LambdaLogger;
-import com.amazonaws.services.s3.event.S3EventNotification.S3EventNotificationRecord;
 import com.amazonaws.AmazonClientException;
 import com.amazonaws.AmazonServiceException;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 import com.amazonaws.services.s3.model.CopyObjectRequest;
+import com.amazonaws.services.s3.event.S3EventNotification.S3EventNotificationRecord;
+import com.amazonaws.services.lambda.runtime.Context;
+import com.amazonaws.services.lambda.runtime.RequestHandler;
+import com.amazonaws.services.lambda.runtime.events.S3Event;
+import com.amazonaws.services.lambda.runtime.LambdaLogger;
 
 
-public class S3Copy implements RequestHandler<S3Event, String>{
-    private static String SourceBucketName;                      // Source bucket name
-    private static String SourceKeyName;                         // Source key
-    private static String DestinationBucketName = "targetvm";    // Destination bucket name
-    private static String DestinationKeyName;                    // Destination key
+public class S3Copy implements RequestHandler<S3Event, String> {
 
     public String handleRequest(S3Event input, Context context){
+        String sourceBucketName;                      // Source bucket name
+        String sourceKeyName;                         // Source key
+        String destinationBucketName = "targetvm";    // Destination bucket name
+        String destinationKeyName;                    // Destination key
+
         LambdaLogger logger = context.getLogger();
 
         // Get Event Record
         S3EventNotificationRecord record = input.getRecords().get(0);
 
         // Source Bucket Name
-        SourceBucketName = record.getS3().getBucket().getName();
+        sourceBucketName = record.getS3().getBucket().getName();
 
         // Source File Name
-        SourceKeyName = record.getS3().getObject().getKey(); // Name doesn't contain any special characters
+        sourceKeyName = record.getS3().getObject().getKey(); // Name doesn't contain any special characters
 
         // Destination File Name
-        DestinationKeyName = SourceKeyName;
+        destinationKeyName = sourceKeyName;
 
         logger.log("Input: " + input);
-        logger.log("Source Bucket: " + SourceBucketName + "\n");
-        logger.log("Source File:   " + SourceKeyName + "\n");
-        logger.log("Target Bucket: " + DestinationBucketName + "\n");
-        logger.log("Target File:   " + DestinationKeyName + "\n");
+        logger.log("Source Bucket: " + sourceBucketName + "\n");
+        logger.log("Source File:   " + sourceKeyName + "\n");
+        logger.log("Target Bucket: " + destinationBucketName + "\n");
+        logger.log("Target File:   " + destinationKeyName + "\n");
 
+        // Instantiates a client
         AmazonS3 s3client = AmazonS3ClientBuilder.defaultClient();
 
         try {
@@ -52,7 +54,7 @@ public class S3Copy implements RequestHandler<S3Event, String>{
 
             // Copy object
             CopyObjectRequest copyObjRequest = new CopyObjectRequest(
-                    SourceBucketName, SourceKeyName, DestinationBucketName, DestinationKeyName);
+                    sourceBucketName, sourceKeyName, destinationBucketName, destinationKeyName);
 
             s3client.copyObject(copyObjRequest);
 
@@ -79,6 +81,6 @@ public class S3Copy implements RequestHandler<S3Event, String>{
 
         s3client.shutdown();
 
-        return DestinationBucketName + "/" + DestinationKeyName;
+        return destinationBucketName + "/" + destinationKeyName;
     }
 }
