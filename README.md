@@ -22,6 +22,8 @@ The code for the samples is contained in individual folders on this repository. 
 * [awslambdas3move](/awslambdas3move) - AWS Lambda Function S3 Move: Example of how to handle an AWS Lambda function and move a file when it appears in a S3 bucket to another S3 bucket
 
 **Storage - Amazon S3:**
+* [awss3create](/awss3create) - AWS S3 Create: Example of how to handle S3 buckets and create a new S3 bucket
+* [awss3delete](/awss3delete) - AWS S3 Delete: Example of how to handle S3 buckets and delete a S3 bucket
 * [awss3list](/awss3list) - AWS S3 List: Example of how to handle S3 buckets and list information about the files in a S3 bucket
 * [awss3copy](/awss3copy) - AWS S3 Copy: Example of how to handle S3 buckets and copy a file from a S3 bucket to another S3 bucket
 * [awss3move](/awss3move) - AWS S3 Move: Example of how to handle S3 buckets and move a file from a S3 bucket to another S3 bucket
