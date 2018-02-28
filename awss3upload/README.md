@@ -25,7 +25,9 @@ This code was written for Java 1.8 and AWS SDK for Java 1.11.x.
   You must provide 3 parameters:
   
   <BUCKET_NAME>     = Bucket name
+  
   <OBJECT_NAME>     = Object file name in the bucket
+  
   <LOCAL_FILE_NAME> = Local file name
 
   ```
