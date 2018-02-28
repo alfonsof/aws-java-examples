@@ -1,6 +1,7 @@
 # AWS S3 Delete Java example
 
 This folder contains a Java application example that handles S3 buckets on AWS (Amazon Web Services).
+
 Delete a S3 bucket.
 
 
