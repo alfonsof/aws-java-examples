@@ -1,6 +1,8 @@
 /**
  * S3List is an example that handles S3 buckets on AWS
  * List information about the files in a S3 bucket
+ * You must provide 1 parameter:
+ * BUCKET_NAME     = Bucket name
  */
 
 package example;
