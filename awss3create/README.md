@@ -1,6 +1,7 @@
 # AWS S3 Create Java example
 
 This folder contains a Java application example that handles S3 buckets on AWS (Amazon Web Services).
+
 Create a new S3 bucket.
 
 
