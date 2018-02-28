@@ -1,7 +1,7 @@
 /**
  * S3Delete is an example that handles S3 buckets on AWS
  * Delete a S3 bucket
- * You must use 1 parameter:
+ * You must provide 1 parameter:
  * BUCKET_NAME = Name of the bucket
  */
 
