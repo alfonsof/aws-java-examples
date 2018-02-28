@@ -27,7 +27,7 @@ This code was written for Java 1.8 and AWS SDK for Java 1.11.x.
 * Run the code:
 
   ```
-  java -jar awss3listall.jar bucket-name
+  java -jar awss3listall.jar
   ```
 
 * Test the application:
