@@ -19,6 +19,8 @@ This code was written for Java 1.8 and AWS SDK for Java 1.11.x.
 
 * Configure your AWS access keys.
 
+* You can select the bucket region changing the value of "region" variable in the code.
+
 * Run the code:
 
   You must provide 1 parameter:
