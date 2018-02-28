@@ -20,8 +20,6 @@ This code was written for Java 1.8 and AWS SDK for Java 1.11.x.
 
 * Configure your AWS access keys.
 
-* You can select the destination bucket name changing the value of "destinationBucketName" variable in the code.
-
 * Create a S3 bucket for the source and another S3 bucket for the target.
 
 * Copy a file to the source S3 bucket.
