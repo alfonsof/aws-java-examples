@@ -19,9 +19,9 @@ import com.amazonaws.services.lambda.runtime.events.S3Event;
 import com.amazonaws.services.lambda.runtime.LambdaLogger;
 
 
-public class S3Move implements RequestHandler<S3Event, String>{
+public class S3Move implements RequestHandler<S3Event, String> {
 
-    public String handleRequest(S3Event input, Context context){
+    public String handleRequest(S3Event input, Context context) {
         String sourceBucketName;                      // Source bucket name
         String sourceKeyName;                         // Source key
         String destinationBucketName = "targetvm";    // Destination bucket name
