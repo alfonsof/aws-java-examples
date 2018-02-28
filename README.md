@@ -29,6 +29,7 @@ The code for the samples is contained in individual folders on this repository. 
 * [awss3copy](/awss3copy) - AWS S3 Copy: Example of how to handle S3 buckets and copy a file from a S3 bucket to another S3 bucket.
 * [awss3move](/awss3move) - AWS S3 Move: Example of how to handle S3 buckets and move a file from a S3 bucket to another S3 bucket.
 * [awss3upload](/awss3upload) - AWS S3 Upload: Example of how to handle S3 buckets and upload a local file to a S3 bucket.
+* [awss3download](/awss3download) - AWS S3 Download: Example of how to handle S3 buckets and download an object from a S3 bucket to a local file.
 
 
 For instructions on running the code, please consult the README in each folder. 
