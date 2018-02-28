@@ -1,6 +1,7 @@
 # AWS S3 Copy Java example
 
 This folder contains a Java application example that handles S3 buckets on AWS (Amazon Web Services).
+
 Copy a file from a S3 bucket to another S3 bucket.
 
 
