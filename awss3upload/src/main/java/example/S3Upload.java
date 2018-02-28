@@ -1,7 +1,7 @@
 /**
  * S3Upload is an example that handles S3 buckets on AWS
  * Upload a local file to a S3 bucket
- * SOURCE_BUCKET   = Source bucket name
+ * BUCKET_NAME     = Bucket name
  * OBJECT_NAME     = Object file name in the bucket
  * LOCAL_FILE_NAME = Local file name
  */
@@ -18,12 +18,12 @@ import com.amazonaws.services.s3.model.PutObjectRequest;
 
 public class S3Upload {
     public static void main(String[] args) throws IOException {
-        String bucketName;     // Source bucket name
+        String bucketName;     // Bucket name
         String keyName;        // Key name, it is the object name
         String uploadFileName; // Upload local file name
 
         if (args.length < 3) {
-            System.out.println("Not enough parameters. Proper Usage is: java -jar s3upload.jar <SOURCE_BUCKET> <OBJECT_NAME> <LOCAL_FILE_NAME>");
+            System.out.println("Not enough parameters. Proper Usage is: java -jar s3upload.jar <BUCKET_NAME> <OBJECT_NAME> <LOCAL_FILE_NAME>");
             System.exit(1);
         }
 
@@ -47,7 +47,7 @@ public class S3Upload {
             // Upload object
             s3client.putObject(new PutObjectRequest(
                     bucketName, keyName, file));
-            
+
             System.out.println("Uploaded");
 
         } catch (AmazonServiceException ase) {
@@ -70,5 +70,4 @@ public class S3Upload {
         }
         s3client.shutdown();
     }
-
 }
