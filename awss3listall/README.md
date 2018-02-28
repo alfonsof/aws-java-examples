@@ -2,7 +2,7 @@
 
 This folder contains a Java application example that handles S3 buckets on AWS (Amazon Web Services).
 
-List information about all S3 buckets and the files they contain for.
+List information about all S3 buckets and the files they contain.
 
 
 
