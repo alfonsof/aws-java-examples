@@ -18,7 +18,10 @@ import com.amazonaws.services.s3.model.GetBucketLocationRequest;
 public class S3Create {
 
     public static void main(String[] args) throws IOException {
-       if (args.length < 1) {
+
+        String region = "eu-west-1";  // Region name for the bucket
+
+        if (args.length < 1) {
            System.out.println("Not enough parameters. Proper Usage is: java -jar s3create.jar <BUCKET_NAME>");
            System.exit(1);
         }
@@ -29,7 +32,11 @@ public class S3Create {
         System.out.println("Bucket name: " + bucketName);
 
         // Instantiates a client
-        AmazonS3 s3client = AmazonS3ClientBuilder.defaultClient();
+        AmazonS3 s3client = AmazonS3ClientBuilder.standard()
+                .withRegion(region).build();
+
+        // You can use this instead of the previous one if you want to create a bucket in the default region
+        // AmazonS3 s3client = AmazonS3ClientBuilder.defaultClient();
 
         try {
             System.out.println("Creating bucket...");
