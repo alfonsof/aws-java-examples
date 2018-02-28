@@ -1,7 +1,7 @@
 /**
  * S3Copy is an example that handles S3 buckets on AWS
  * Copy a file from a S3 bucket to another S3 bucket
- * You must use 3 parameters:
+ * You must provide 3 parameters:
  * SOURCE_BUCKET      = Source bucket name
  * SOURCE_FILE        = Source file name
  * DESTINATION_BUCKET = Destination bucket name
