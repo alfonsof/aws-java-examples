@@ -1,5 +1,5 @@
 /**
- * AWSHelp class with methods for managing AWS EC2 instances
+ * AWSHelper class with methods for managing AWS EC2 instances
  */
 
 package example;
@@ -13,13 +13,13 @@ import com.amazonaws.services.ec2.model.Tag;
 import com.amazonaws.services.ec2.model.*;
 
 
-public class AWSHelper {
+public final class AWSHelper {
     private static String amiId         = "ami-785db401";   // AMI Id
     private static String instanceType  = "t2.micro";       // Instance Type
     private static String instanceName  = "my-instance";    // Instance name
     //private static String securityGroup = "default";        //"sg-068f967e";
 
-    public AWSHelper() {
+    private AWSHelper() {
 
     }
 
