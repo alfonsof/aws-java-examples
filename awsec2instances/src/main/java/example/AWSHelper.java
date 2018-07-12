@@ -20,7 +20,6 @@ public final class AWSHelper {
     //private static String securityGroup = "default";        //"sg-068f967e";
 
     private AWSHelper() {
-
     }
 
 
