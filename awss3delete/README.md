@@ -34,6 +34,6 @@ This code was written for Java 1.8 and AWS SDK for Java 1.11.x.
   java -jar awss3delete.jar bucket-name
   ```
 
-* Test the application:
+* Test the application.
 
   You should not see the S3 bucket deleted.

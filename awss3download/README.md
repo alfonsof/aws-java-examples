@@ -34,6 +34,6 @@ This code was written for Java 1.8 and AWS SDK for Java 1.11.x.
   java -jar awss3download.jar bucket-name object-name local-file
   ```
 
-* Test the application:
+* Test the application.
 
   You should see the new file created in your local destiny from the S3 bucket.

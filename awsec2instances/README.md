@@ -35,3 +35,7 @@ This code was written for Java 1.8 and AWS SDK for Java 1.11.x.
   * 5 = Stop instance
   * 6 = Reboot instance
   * 7 = Terminate instance
+
+* Test the application.
+
+  You should see the new instance and modification of states with the AWS console.

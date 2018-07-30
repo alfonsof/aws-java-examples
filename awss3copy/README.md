@@ -38,6 +38,6 @@ This code was written for Java 1.8 and AWS SDK for Java 1.11.x.
   java -jar awss3copy.jar source-bucket source-file destination-bucket
   ```
 
-* Test the application:
+* Test the application.
 
   The file from the source S3 bucket should be copied to the target S3 bucket.

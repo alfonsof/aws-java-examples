@@ -32,6 +32,6 @@ This code was written for Java 1.8 and AWS SDK for Java 1.11.x.
   java -jar awss3listall.jar
   ```
 
-* Test the application:
+* Test the application.
 
   You should see the list of buckets and files stored in each S3 buckets.

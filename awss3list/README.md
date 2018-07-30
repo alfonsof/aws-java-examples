@@ -36,6 +36,6 @@ This code was written for Java 1.8 and AWS SDK for Java 1.11.x.
   java -jar awss3list.jar bucket-name
   ```
 
-* Test the application:
+* Test the application.
 
   You should see the list of files stored in the S3 bucket.
