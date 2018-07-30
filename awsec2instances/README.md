@@ -18,18 +18,20 @@ This code was written for Java 1.8 and AWS SDK for Java 1.11.x.
 
 * Configure your AWS access keys.
 
-* Run the code:
+* Run the code.
 
-```
-java -jar awsec2instances.jar
-```
+  Run application:
 
-You can select an option in the menu in order to run every command:
+  ```
+  java -jar awsec2instances.jar
+  ```
 
-* 1 = Describe all instances
-* 2 = Run new instance
-* 3 = Describe instance
-* 4 = Start instance
-* 5 = Stop instance
-* 6 = Reboot instance
-* 7 = Terminate instance
+  You can select an option in the menu in order to run every command:
+
+  * 1 = Describe all instances
+  * 2 = Run new instance
+  * 3 = Describe instance
+  * 4 = Start instance
+  * 5 = Stop instance
+  * 6 = Reboot instance
+  * 7 = Terminate instance

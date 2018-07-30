@@ -24,12 +24,14 @@ This code was written for Java 1.8 and AWS SDK for Java 1.11.x.
 
 * Copy some files to the S3 bucket.
 
-* Run the code:
+* Run the code.
 
   You must provide 1 parameter:
   
-  <BUCKET_NAME> = Bucket name
+  * `<BUCKET_NAME>` = Bucket name
 
+  Run application:
+  
   ```
   java -jar awss3list.jar bucket-name
   ```

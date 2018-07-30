@@ -24,16 +24,16 @@ This code was written for Java 1.8 and AWS SDK for Java 1.11.x.
 
 * Copy a file to the source S3 bucket.
 
-* Run the code:
+* Run the code.
 
   You must provide 3 parameters:
   
-  <SOURCE_BUCKET>      = Source bucket name
+  * `<SOURCE_BUCKET>`      = Source bucket name
+  * `<SOURCE_FILE>`        = Source file name
+  * `<DESTINATION_BUCKET>` = Destination bucket name
 
-  <SOURCE_FILE>        = Source file name
+  Run application:
   
-  <DESTINATION_BUCKET> = Destination bucket name
-
   ```
   java -jar awss3copy.jar source-bucket source-file destination-bucket
   ```

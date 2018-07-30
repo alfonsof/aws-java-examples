@@ -24,7 +24,9 @@ This code was written for Java 1.8 and AWS SDK for Java 1.11.x.
 
 * Copy some files to the S3 buckets.
 
-* Run the code:
+* Run the code.
+
+  Run application:
 
   ```
   java -jar awss3listall.jar

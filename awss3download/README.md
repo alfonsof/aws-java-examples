@@ -20,16 +20,16 @@ This code was written for Java 1.8 and AWS SDK for Java 1.11.x.
 
 * Configure your AWS access keys.
 
-* Run the code:
+* Run the code.
 
   You must provide 3 parameters:
   
-  <BUCKET_NAME>     = Bucket name
-  
-  <OBJECT_NAME>     = Object file name in the bucket
-  
-  <LOCAL_FILE_NAME> = Local file name
+  * `<BUCKET_NAME>`     = Bucket name
+  * `<OBJECT_NAME>`     = Object file name in the bucket
+  * `<LOCAL_FILE_NAME>` = Local file name
 
+  Run application:
+  
   ```
   java -jar awss3download.jar bucket-name object-name local-file
   ```

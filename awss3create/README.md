@@ -22,12 +22,14 @@ This code was written for Java 1.8 and AWS SDK for Java 1.11.x.
 
 * You can select the bucket region changing the value of "region" variable in the code.
 
-* Run the code:
+* Run the code.
 
   You must provide 1 parameter:
   
-  <BUCKET_NAME> = Bucket name
+  * `<BUCKET_NAME>` = Bucket name
 
+  Run application:
+  
   ```
   java -jar awss3create.jar bucket-name
   ```
