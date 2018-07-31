@@ -4,17 +4,11 @@ This folder contains a Java application example that handles S3 buckets on AWS (
 
 List information about all S3 buckets and the files they contain.
 
-
-
-
 ## Requirements
 
 * You must have an [Amazon Web Services (AWS) account](http://aws.amazon.com/).
 
 This code was written for Java 1.8 and AWS SDK for Java 1.11.x.
-
-
-
 
 ## Using the code
 
@@ -28,7 +22,7 @@ This code was written for Java 1.8 and AWS SDK for Java 1.11.x.
 
   Run application:
 
-  ```
+  ```bash
   java -jar awss3listall.jar
   ```
 

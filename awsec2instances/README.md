@@ -2,17 +2,11 @@
 
 This folder contains a Java application example that handles EC2 instances on AWS (Amazon Web Services).
 
-
-
-
 ## Requirements
 
 * You must have an [Amazon Web Services (AWS) account](http://aws.amazon.com/).
 
 This code was written for Java 1.8 and AWS SDK for Java 1.11.x.
-
-
-
 
 ## Using the code
 
@@ -22,7 +16,7 @@ This code was written for Java 1.8 and AWS SDK for Java 1.11.x.
 
   Run application:
 
-  ```
+  ```bash
   java -jar awsec2instances.jar
   ```
 

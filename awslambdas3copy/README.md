@@ -4,17 +4,11 @@ This folder contains an AWS Lambda Function example in Java on AWS (Amazon Web S
 
 It handles an AWS Lambda function that copies a file when it appears in a S3 bucket to another S3 bucket.
 
-
-
-
 ## Requirements
 
 * You must have an [Amazon Web Services (AWS) account](http://aws.amazon.com/).
 
 This code was written for Java 1.8 and AWS SDK for Java 1.11.x.
-
-
-
 
 ## Using the code
 
@@ -28,7 +22,7 @@ This code was written for Java 1.8 and AWS SDK for Java 1.11.x.
 
   Content of the IAM policy:
 
-  ```
+  ```bash
   {
       "Version": "2012-10-17",
       "Statement": [
@@ -92,7 +86,7 @@ This code was written for Java 1.8 and AWS SDK for Java 1.11.x.
 
   Handler function:
 
-  ```
+  ```bash
   example.S3Copy::handleRequest
   ```
 
@@ -100,7 +94,7 @@ This code was written for Java 1.8 and AWS SDK for Java 1.11.x.
 
   Artifact: 
 
-  ```
+  ```bash
   awslambdas3copy.jar
   ```
 

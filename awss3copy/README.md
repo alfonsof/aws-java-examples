@@ -4,17 +4,11 @@ This folder contains a Java application example that handles S3 buckets on AWS (
 
 Copy a file from a S3 bucket to another S3 bucket.
 
-
-
-
 ## Requirements
 
 * You must have an [Amazon Web Services (AWS) account](http://aws.amazon.com/).
 
 This code was written for Java 1.8 and AWS SDK for Java 1.11.x.
-
-
-
 
 ## Using the code
 
@@ -33,8 +27,8 @@ This code was written for Java 1.8 and AWS SDK for Java 1.11.x.
   * `<DESTINATION_BUCKET>` = Destination bucket name
 
   Run application:
-  
-  ```
+
+  ```bash
   java -jar awss3copy.jar source-bucket source-file destination-bucket
   ```
 

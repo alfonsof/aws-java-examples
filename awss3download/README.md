@@ -4,17 +4,11 @@ This folder contains a Java application example that handles S3 buckets on AWS (
 
 Download an object from a S3 bucket to a local file.
 
-
-
-
 ## Requirements
 
 * You must have an [Amazon Web Services (AWS) account](http://aws.amazon.com/).
 
 This code was written for Java 1.8 and AWS SDK for Java 1.11.x.
-
-
-
 
 ## Using the code
 
@@ -29,8 +23,8 @@ This code was written for Java 1.8 and AWS SDK for Java 1.11.x.
   * `<LOCAL_FILE_NAME>` = Local file name
 
   Run application:
-  
-  ```
+
+  ```bash
   java -jar awss3download.jar bucket-name object-name local-file
   ```
 

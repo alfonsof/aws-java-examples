@@ -4,17 +4,11 @@ This folder contains an AWS Lambda Function example in Java on AWS (Amazon Web S
 
 It handles an AWS Lambda function that sends information to the log about a file when it appears in a S3 bucket.
 
-
-
-
 ## Requirements
 
 * You must have an [Amazon Web Services (AWS) account](http://aws.amazon.com/).
 
 This code was written for Java 1.8 and AWS SDK for Java 1.11.x.
-
-
-
 
 ## Using the code
 
@@ -31,15 +25,15 @@ This code was written for Java 1.8 and AWS SDK for Java 1.11.x.
 
   Handler function:
 
-  ```
+  ```bash
   example.S3example::handleRequest
   ```
 
 * Upload the Java JAR file.
 
-  Artifact: 
+  Artifact:
 
-  ```
+  ```bash
   awslambdas3example.jar
   ```
 
@@ -49,7 +43,7 @@ This code was written for Java 1.8 and AWS SDK for Java 1.11.x.
 
   You should see the next messages in the log:
 
-  ```
+  ```bash
   "Input: LAMBDA_INPUT"
   "Bucket: BUCKET_NAME"
   "File: FILE_NAME"
