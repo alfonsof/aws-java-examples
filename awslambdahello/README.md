@@ -8,7 +8,7 @@ It handles a simple AWS Lambda function that shows the content of the call to th
 
 * You must have an [Amazon Web Services (AWS) account](http://aws.amazon.com/).
 
-This code was written for Java 1.8 and AWS SDK for Java 1.11.x.
+* The code was written for Java 1.8 and AWS SDK for Java 1.11.x.
 
 ## Using the code
 
