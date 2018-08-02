@@ -5,8 +5,7 @@ It handles an AWS Lambda function that moves a file when it appears in a S3 buck
 
 ## Requirements
 
-* You must have an [Amazon Web Services (AWS) account](http://aws.amazon.com/).
-
+* You must have an [Amazon Web Services (AWS)](http://aws.amazon.com/) account.
 * The code was written for Java 1.8 and AWS SDK for Java 1.11.x.
 
 ## Using the code
