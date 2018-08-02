@@ -1,10 +1,10 @@
 # Java examples on AWS (Amazon Web Services)
 
-This repo contains Java code examples on the Amazon Web Services (AWS) platform.
+This repo contains Java code examples on AWS (Amazon Web Services).
 
 ## Quick start
 
-You must have an [Amazon Web Services (AWS) account](http://aws.amazon.com/).
+You must have an [AWS (Amazon Web Services)](http://aws.amazon.com/) account.
 
 The code for the samples is contained in individual folders on this repository. You can see the list:
 
