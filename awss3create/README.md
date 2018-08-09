@@ -13,7 +13,7 @@ Create a new S3 bucket.
 
 * Configure your AWS access keys.
 
-  **Important:** For security, we strongly recommend that you use IAM users instead of the root account for AWS access.
+  **Important:** For security, it is strongly recommend that you use IAM users instead of the root account for AWS access.
 
   When you initialize a new service client without supplying any arguments, the AWS SDK for Java attempts to find AWS credentials by using the default credential provider chain.
 
