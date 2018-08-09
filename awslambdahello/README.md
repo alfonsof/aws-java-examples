@@ -16,7 +16,7 @@ It handles a simple AWS Lambda function that shows the content of the call to th
 * Select AWS Lambda in the services menu.
 
 * Create an AWS lambda function:
-  * Name:    LAMBDA_NAME
+  * Name:    <LAMBDA_NAME>
   * Runtime: Java 8
   * Role:    lambda-basic-execution
   * The triggers: Nothing
