@@ -11,7 +11,7 @@ It handles an AWS Lambda function that copies a file when it appears in a S3 buc
 
 ## Using the code
 
-* You can select the destination bucket name changing the value of "destinationBucketName" variable in the code.
+* You can select the destination bucket name changing the value of `destinationBucketName` variable in the code.
 
 * Access the AWS console.
 
@@ -72,7 +72,7 @@ It handles an AWS Lambda function that copies a file when it appears in a S3 buc
   This role uses the policy: Policy-VM-buckets
 
 * Create an AWS lambda function:
-  * Name: LAMBDA_NAME
+  * Name: <LAMBDA_NAME>
   * Runtime: Java 8
   * Role: Role-VM-buckets
   * The triggers: S3 (with access to the S3 bucket and Event type: ObjectCreated)

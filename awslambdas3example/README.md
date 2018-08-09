@@ -16,7 +16,7 @@ It handles an AWS Lambda function that sends information to the log about a file
 * Create a S3 bucket.
 
 * Create an AWS lambda function:
-  * Name: LAMBDA_NAME
+  * Name: <LAMBDA_NAME>
   * Runtime: Java 8
   * Role: Role-VM-buckets
   * The triggers: S3 (with access to the S3 bucket and Event type: ObjectCreated)
