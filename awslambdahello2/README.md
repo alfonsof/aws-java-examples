@@ -12,10 +12,12 @@ using classes for Request and Response.
 
 ## Using the code
 
-* Configure your AWS access keys.
+* Access the AWS console.
+
+* Select AWS Lambda in the services menu.
 
 * Create an AWS lambda function:
-  * Name: SOME_NAME
+  * Name: LAMBDA_NAME
   * Runtime: Java 8
   * Role: lambda-basic-execution
   * The triggers: Nothing
@@ -29,7 +31,7 @@ using classes for Request and Response.
 
 * Upload the Java JAR file.
 
-  Artifact: 
+  Artifact:
 
   ```bash
   awslambdahello2.jar
