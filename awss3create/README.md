@@ -43,15 +43,15 @@ Create a new S3 bucket.
     To set these variables on Linux, macOS, or Unix, use `export`:
 
     ```bash
-    export AWS_ACCESS_KEY_ID=your_access_key_id
-    export AWS_SECRET_ACCESS_KEY=your_secret_access_key
+    export AWS_ACCESS_KEY_ID=<your_access_key_id>
+    export AWS_SECRET_ACCESS_KEY=<your_secret_access_key>
     ```
 
     To set these variables on Windows, use `set`:
 
     ```bash
-    set AWS_ACCESS_KEY_ID=your_access_key_id
-    set AWS_SECRET_ACCESS_KEY=your_secret_access_key
+    set AWS_ACCESS_KEY_ID=<your_access_key_id>
+    set AWS_SECRET_ACCESS_KEY=<your_secret_access_key>
     ```
 
 * You can select the bucket region changing the value of "region" variable in the code.
