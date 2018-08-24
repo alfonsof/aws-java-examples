@@ -2,6 +2,10 @@
 
 This repo contains Java code examples on AWS (Amazon Web Services).
 
+These examples show how to use Java 1.8 and AWS SDK for Java 1.11 in order to manage Amazon services on AWS.
+
+AWS SDK for Java is the AWS (Amazon Web Services) SDK for Java, which allows Java developers to write software that makes use of Amazon services like S3 and EC2.
+
 ## Quick start
 
 You must have an [AWS (Amazon Web Services)](http://aws.amazon.com/) account.
