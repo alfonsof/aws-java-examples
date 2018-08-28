@@ -7,7 +7,7 @@ Create a new S3 bucket.
 ## Requirements
 
 * You must have an [Amazon Web Services (AWS)](http://aws.amazon.com/) account.
-* The code was written for Java 1.8 and AWS SDK for Java 1.11.x.
+* The code was written for Java 8 and AWS SDK for Java 1.11.
 
 ## Using the code
 

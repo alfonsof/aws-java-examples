@@ -8,7 +8,7 @@ using classes for Request and Response.
 ## Requirements
 
 * You must have an [Amazon Web Services (AWS)](http://aws.amazon.com/) account.
-* The code was written for Java 1.8 and AWS SDK for Java 1.11.x.
+* The code was written for Java 8 and AWS SDK for Java 1.11.
 
 ## Using the code
 
@@ -43,11 +43,8 @@ using classes for Request and Response.
 
   ```bash
   {
-
     "firstName": "Peter",
-
     "lastName": "Parker"
-
   }
   ```
 
@@ -58,9 +55,7 @@ using classes for Request and Response.
   You should see the next messages in the log:
 
   ```bash
-  "First Name: Peter"
-
-  "Last Name: Parker"
-
-  "Hello Peter Parker."
+  {
+    "message": "Hello Peter Parker!"
+  }
   ```
