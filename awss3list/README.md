@@ -2,7 +2,7 @@
 
 This folder contains a Java application example that handles S3 buckets on AWS (Amazon Web Services).
 
-List information about the files in a S3 bucket.
+List information about the objects in a S3 bucket.
 
 ## Requirements
 
@@ -72,4 +72,4 @@ List information about the files in a S3 bucket.
 
 * Test the application.
 
-  You should see the list of files stored in the S3 bucket.
+  You should see the list of objects stored in the S3 bucket.

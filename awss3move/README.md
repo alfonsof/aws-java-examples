@@ -2,7 +2,7 @@
 
 This folder contains a Java application example that handles S3 buckets on AWS (Amazon Web Services).
 
-Move a file from a S3 bucket to another S3 bucket.
+Move an object from a S3 bucket to another S3 bucket.
 
 ## Requirements
 
@@ -63,7 +63,7 @@ Move a file from a S3 bucket to another S3 bucket.
   You must provide 3 parameters:
   
   * `<SOURCE_BUCKET>`      = Source bucket name
-  * `<SOURCE_FILE>`        = Source file name
+  * `<SOURCE_OBJECT>`      = Source object name
   * `<DESTINATION_BUCKET>` = Destination bucket name
 
   Run application:
@@ -74,4 +74,4 @@ Move a file from a S3 bucket to another S3 bucket.
 
 * Test the application.
 
-  The file from the source S3 bucket should be copied to the target S3 bucket and deleted in the source S3 bucket.
+  The object from the source S3 bucket should be copied to the target S3 bucket and deleted in the source S3 bucket.

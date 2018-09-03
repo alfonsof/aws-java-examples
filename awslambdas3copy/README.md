@@ -2,7 +2,7 @@
 
 This folder contains an AWS Lambda Function example in Java on AWS (Amazon Web Services).
 
-It handles an AWS Lambda function that copies a file when it appears in a S3 bucket to another S3 bucket.
+It handles an AWS Lambda function that copies an object when it appears in a S3 bucket to another S3 bucket.
 
 ## Requirements
 
@@ -101,4 +101,4 @@ It handles an AWS Lambda function that copies a file when it appears in a S3 buc
 
   Copy a file in the source S3 bucket.
 
-  The file from the source S3 bucket should be copied to the target S3 bucket.
+  The object from the source S3 bucket should be copied to the target S3 bucket.

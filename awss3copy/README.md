@@ -2,7 +2,7 @@
 
 This folder contains a Java application example that handles S3 buckets on AWS (Amazon Web Services).
 
-Copy a file from a S3 bucket to another S3 bucket.
+Copy an object from a S3 bucket to another S3 bucket.
 
 ## Requirements
 
@@ -63,15 +63,15 @@ Copy a file from a S3 bucket to another S3 bucket.
   You must provide 3 parameters:
   
   * `<SOURCE_BUCKET>`      = Source bucket name
-  * `<SOURCE_FILE>`        = Source file name
+  * `<SOURCE_OBJECT>`      = Source object name
   * `<DESTINATION_BUCKET>` = Destination bucket name
 
   Run application:
 
   ```bash
-  java -jar awss3copy.jar source-bucket source-file destination-bucket
+  java -jar awss3copy.jar source-bucket source-object destination-bucket
   ```
 
 * Test the application.
 
-  The file from the source S3 bucket should be copied to the target S3 bucket.
+  The object from the source S3 bucket should be copied to the target S3 bucket.
