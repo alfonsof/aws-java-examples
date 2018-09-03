@@ -20,7 +20,7 @@ The code for the samples is contained in individual folders on this repository. 
 
 * [awslambdahello](/awslambdahello) - AWS Lambda Function Hello World: Example of how to handle an AWS simple Lambda function.
 * [awslambdahello2](/awslambdahello2) - AWS Lambda Function other Hello World: Example of how to handle an AWS simple Lambda function using classes for Request and Response.
-* [awslambdas3example](/awslambdas3example) - AWS Lambda Function S3 example: Example of how to handle an AWS Lambda Function and send information to the log about a file when it appears in a S3 bucket.
+* [awslambdas3example](/awslambdas3example) - AWS Lambda Function S3 example: Example of how to handle an AWS Lambda Function and send information to the log about an object when it appears in a S3 bucket.
 * [awslambdas3copy](/awslambdas3copy) - AWS Lambda Function S3 Copy: Example of how to handle an AWS Lambda function and copy an object when it appears in a S3 bucket to another S3 bucket.
 * [awslambdas3move](/awslambdas3move) - AWS Lambda Function S3 Move: Example of how to handle an AWS Lambda function and move an object when it appears in a S3 bucket to another S3 bucket.
 
