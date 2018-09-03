@@ -59,7 +59,7 @@ Download an object from a S3 bucket to a local file.
   You must provide 3 parameters:
   
   * `<BUCKET_NAME>`     = Bucket name
-  * `<OBJECT_NAME>`     = Object file name in the bucket
+  * `<OBJECT_NAME>`     = Object name in the bucket
   * `<LOCAL_FILE_NAME>` = Local file name
 
   Run application:

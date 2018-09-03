@@ -69,7 +69,7 @@ Move an object from a S3 bucket to another S3 bucket.
   Run application:
 
   ```bash
-  java -jar awss3move.jar source-bucket source-file destination-bucket
+  java -jar awss3move.jar source-bucket source-object destination-bucket
   ```
 
 * Test the application.

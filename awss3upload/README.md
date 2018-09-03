@@ -59,7 +59,7 @@ Upload a local file to a S3 bucket.
   You must provide 3 parameters:
   
   * `<BUCKET_NAME>`     = Bucket name
-  * `<OBJECT_NAME>`     = Object file name in the bucket
+  * `<OBJECT_NAME>`     = Object name in the bucket
   * `<LOCAL_FILE_NAME>` = Local file name
 
   Run application:

@@ -2,7 +2,7 @@
 
 This folder contains an AWS Lambda Function example in Java on AWS (Amazon Web Services).
 
-It handles an AWS Lambda function that sends information to the log about a file when it appears in a S3 bucket.
+It handles an AWS Lambda function that sends information to the log about an object when it appears in a S3 bucket.
 
 ## Requirements
 
