@@ -39,9 +39,9 @@ public class S3Create {
         // AmazonS3 s3client = AmazonS3ClientBuilder.defaultClient();
 
         try {
-            System.out.println("Creating bucket ...");
-
             if (!s3client.doesBucketExistV2(bucketName)) {
+                System.out.println("Creating bucket ...");
+
                 // Note that CreateBucketRequest does not specify region. So bucket is
                 // created in the region specified in the client.
                 s3client.createBucket(new CreateBucketRequest(
