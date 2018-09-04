@@ -1,8 +1,7 @@
 /**
- * AWS Lambda Function Hello World Java example
- * Handle an AWS simple Lambda function
- * that show the content of the call to the lambda function
- * and return a message with this content
+ * AWS Lambda Function Hello World Java example.
+ * Handle an AWS simple Lambda function that show the content (text) of the call
+ * to the lambda function and returns a message including this content.
  */
 
 package example;
