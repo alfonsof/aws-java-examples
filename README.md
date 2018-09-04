@@ -10,7 +10,11 @@ AWS SDK for Java is the AWS (Amazon Web Services) SDK for Java, which allows Jav
 
 You must have an [AWS (Amazon Web Services)](http://aws.amazon.com/) account.
 
-The code for the samples is contained in individual folders on this repository. You can see the list:
+The code for the samples is contained in individual folders on this repository.
+
+For instructions on running the code, please consult the README in each folder.
+
+This is the list of examples:
 
 **Compute - Amazon EC2:**
 
@@ -34,8 +38,6 @@ The code for the samples is contained in individual folders on this repository. 
 * [awss3download](/awss3download) - AWS S3 Download: Example of how to handle S3 buckets and download an object from a S3 bucket to a local file.
 * [awss3copy](/awss3copy) - AWS S3 Copy: Example of how to handle S3 buckets and copy an object from a S3 bucket to another S3 bucket.
 * [awss3move](/awss3move) - AWS S3 Move: Example of how to handle S3 buckets and move an object from a S3 bucket to another S3 bucket.
-
-For instructions on running the code, please consult the README in each folder.
 
 ## License
 
