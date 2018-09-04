@@ -1,6 +1,6 @@
 /**
- * S3Create is an example that handles S3 buckets on AWS
- * Create a new S3 bucket
+ * S3Create is an example that handles S3 buckets on AWS.
+ * Create a new S3 bucket.
  * You must provide 1 parameter:
  * BUCKET_NAME = Name of the bucket
  */
@@ -22,7 +22,7 @@ public class S3Create {
         String region = "eu-west-1";  // Region name for the bucket
 
         if (args.length < 1) {
-           System.out.println("Not enough parameters. Proper Usage is: java -jar s3create.jar <BUCKET_NAME>");
+           System.out.println("Not enough parameters.\nProper Usage is: java -jar s3create.jar <BUCKET_NAME>");
            System.exit(1);
         }
 
@@ -39,7 +39,7 @@ public class S3Create {
         // AmazonS3 s3client = AmazonS3ClientBuilder.defaultClient();
 
         try {
-            System.out.println("Creating bucket...");
+            System.out.println("Creating bucket ...");
 
             if (!s3client.doesBucketExistV2(bucketName)) {
                 // Note that CreateBucketRequest does not specify region. So bucket is
@@ -47,14 +47,13 @@ public class S3Create {
                 s3client.createBucket(new CreateBucketRequest(
                         bucketName));
                 System.out.println("Created");
+
+                // Get Bucket location
+                String bucketLocation = s3client.getBucketLocation(new GetBucketLocationRequest(bucketName));
+                System.out.println("Bucket location: " + bucketLocation);
             } else {
-                System.out.println("Bucket already exists!!");
+                System.out.println("Error: Bucket already exists!!");
             }
-
-            // Get location.
-            String bucketLocation = s3client.getBucketLocation(new GetBucketLocationRequest(bucketName));
-            System.out.println("Bucket location: " + bucketLocation);
-
         } catch (AmazonServiceException ase) {
             System.out.println("Caught an AmazonServiceException, which " +
                     "means your request made it " +
