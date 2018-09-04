@@ -1,6 +1,6 @@
 /**
- * S3List is an example that handles S3 buckets on AWS
- * List information about the files in a S3 bucket
+ * S3List is an example that handles S3 buckets on AWS.
+ * List information about the objects in a S3 bucket.
  * You must provide 1 parameter:
  * BUCKET_NAME     = Bucket name
  */
@@ -20,28 +20,36 @@ public class S3List {
 
     public static void main(String[] args) throws IOException {
 
+        String region = "eu-west-1";  // Region name for the bucket
         String bucketName;  // Bucket name
 
         if (args.length < 1) {
-            System.out.println("Not enough parameters. Proper Usage is: java -jar s3list.jar <BUCKET_NAME>");
+            System.out.println("Not enough parameters.\nProper Usage is: java -jar s3list.jar <BUCKET_NAME>");
             System.exit(1);
         }
 
-        bucketName      = args[0];
+        // The name for the bucket
+        bucketName = args[0];
 
-        System.out.println("Bucket: " + bucketName);
+        System.out.println("Bucket name: " + bucketName);
 
         // Instantiates a client
-        AmazonS3 s3client = AmazonS3ClientBuilder.defaultClient();
+        AmazonS3 s3client = AmazonS3ClientBuilder.standard()
+                .withRegion(region).build();
 
         try {
-            System.out.println("Listing objects");
-
-            ObjectListing objectListing = s3client.listObjects(new ListObjectsRequest()
-                    .withBucketName(bucketName));
-            for (S3ObjectSummary objectSummary : objectListing.getObjectSummaries()) {
-                System.out.println(" - " + objectSummary.getKey() + "  " +
-                        "(size = " + objectSummary.getSize() + ")");
+            if (s3client.doesBucketExistV2(bucketName)) {
+                System.out.println("Listing objects ...");
+                // List objects in a Bucket
+                ObjectListing objectListing = s3client.listObjects(new ListObjectsRequest()
+                        .withBucketName(bucketName));
+                for (S3ObjectSummary objectSummary : objectListing.getObjectSummaries()) {
+                    System.out.println(" - " + objectSummary.getKey() + "  " +
+                            "(size = " + objectSummary.getSize() + ")");
+                }
+                System.out.println("Listed");
+            } else {
+                System.out.println("Error: Bucket does not exist!!");
             }
         } catch (AmazonServiceException ase) {
             System.out.println("Caught an AmazonServiceException, " +
