@@ -1,6 +1,6 @@
 /**
- * S3ListAll is an example that handles S3 buckets on AWS
- * List information about all S3 buckets and the files they contain
+ * S3ListAll is an example that handles S3 buckets on AWS.
+ * List information about all S3 buckets and the objects that they contain.
  */
 
 package example;
@@ -17,27 +17,33 @@ import com.amazonaws.services.s3.model.ObjectListing;
 import com.amazonaws.services.s3.model.S3ObjectSummary;
 
 public class S3ListAll {
+
     public static void main(String[] args) throws IOException {
 
+        String region = "eu-west-1";  // Region name
+
         // Instantiates a client
-        AmazonS3 s3client = AmazonS3ClientBuilder.defaultClient();
+        AmazonS3 s3client = AmazonS3ClientBuilder.standard()
+                .withRegion(region).build();
 
         try {
             System.out.println("Listing S3 buckets and objects ...");
-
+            // List Buckets
             List<Bucket> buckets = s3client.listBuckets();
-            System.out.println("Your Amazon S3 buckets are:");
+            System.out.println("Your Amazon S3 buckets:");
             String bucketName;
             for (Bucket b : buckets) {
                 bucketName = b.getName();
                 System.out.println("* Bucket: " + bucketName);
                 ObjectListing objectListing = s3client.listObjects(new ListObjectsRequest()
                         .withBucketName(bucketName));
+                // List Objects
                 for (S3ObjectSummary objectSummary : objectListing.getObjectSummaries()) {
-                    System.out.println(" - Object: " + objectSummary.getKey() + "  " +
+                    System.out.println("  - Object: " + objectSummary.getKey() + "  " +
                             "(size = " + objectSummary.getSize() + ")");
                 }
             }
+            System.out.println("Listed");
         } catch (AmazonServiceException ase) {
             System.out.println("Caught an AmazonServiceException, " +
                     "which means your request made it " +
