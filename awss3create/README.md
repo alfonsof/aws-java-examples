@@ -54,7 +54,7 @@ Create a new S3 bucket.
     set AWS_SECRET_ACCESS_KEY=<your_secret_access_key>
     ```
 
-* You can select the bucket region changing the value of `region` variable in the code.
+* You can select the AWS region changing the value of `REGION` variable in the code.
 
 * Run the code.
 

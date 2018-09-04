@@ -54,6 +54,8 @@ Upload a local file to a S3 bucket.
     set AWS_SECRET_ACCESS_KEY=<your_secret_access_key>
     ```
 
+* You can select the AWS region changing the value of `REGION` variable in the code.
+
 * Run the code.
 
   You must provide 3 parameters:

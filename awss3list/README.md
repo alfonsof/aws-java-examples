@@ -54,6 +54,8 @@ List information about the objects in a S3 bucket.
     set AWS_SECRET_ACCESS_KEY=<your_secret_access_key>
     ```
 
+* You can select the AWS region changing the value of `REGION` variable in the code.
+
 * Create a S3 bucket.
 
 * Copy some files to the S3 bucket.

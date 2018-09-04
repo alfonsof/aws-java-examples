@@ -54,6 +54,8 @@ Download an object from a S3 bucket to a local file.
     set AWS_SECRET_ACCESS_KEY=<your_secret_access_key>
     ```
 
+* You can select the AWS region changing the value of `REGION` variable in the code.
+
 * Run the code.
 
   You must provide 3 parameters:

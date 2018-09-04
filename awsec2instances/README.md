@@ -52,6 +52,8 @@ This folder contains a Java application example that handles EC2 instances on AW
     set AWS_SECRET_ACCESS_KEY=<your_secret_access_key>
     ```
 
+* You can select the AWS region changing the value of `REGION` variable in the code.
+
 * Run the code.
 
   Run application:
