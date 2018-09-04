@@ -18,9 +18,10 @@ import com.amazonaws.services.s3.model.S3ObjectSummary;
 
 public class S3List {
 
+    private static final String REGION = "eu-west-1";      // Region name
+
     public static void main(String[] args) throws IOException {
 
-        String region = "eu-west-1";  // Region name for the bucket
         String bucketName;  // Bucket name
 
         if (args.length < 1) {
@@ -35,7 +36,7 @@ public class S3List {
 
         // Instantiates a client
         AmazonS3 s3client = AmazonS3ClientBuilder.standard()
-                .withRegion(region).build();
+                .withRegion(REGION).build();
 
         try {
             if (s3client.doesBucketExistV2(bucketName)) {

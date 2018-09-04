@@ -18,13 +18,13 @@ import com.amazonaws.services.s3.model.S3ObjectSummary;
 
 public class S3ListAll {
 
-    public static void main(String[] args) throws IOException {
+    private static final String REGION = "eu-west-1";      // Region name
 
-        String region = "eu-west-1";  // Region name
+    public static void main(String[] args) throws IOException {
 
         // Instantiates a client
         AmazonS3 s3client = AmazonS3ClientBuilder.standard()
-                .withRegion(region).build();
+                .withRegion(REGION).build();
 
         try {
             System.out.println("Listing S3 buckets and objects ...");

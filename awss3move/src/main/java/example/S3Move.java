@@ -19,8 +19,9 @@ import com.amazonaws.services.s3.model.DeleteObjectRequest;
 
 public class S3Move {
 
+    private static final String REGION = "eu-west-1";      // Region name
+
     public static void main(String[] args) throws IOException {
-        String region = "eu-west-1";   // Region name
         String sourceBucketName;       // Source bucket name
         String sourceKey;              // Source key
         String destinationBucketName;  // Destination bucket name
@@ -43,7 +44,7 @@ public class S3Move {
 
         // Instantiates a client
         AmazonS3 s3client = AmazonS3ClientBuilder.standard()
-                .withRegion(region).build();
+                .withRegion(REGION).build();
 
         try {
             System.out.println("Moving object ...");

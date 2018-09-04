@@ -15,9 +15,9 @@ import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 
 public class S3Delete {
 
+    private static final String REGION = "eu-west-1";      // Region name
+
     public static void main(String[] args) throws IOException {
-        
-        String region = "eu-west-1";  // Region name for the bucket
         
         if (args.length < 1) {
             System.out.println("Not enough parameters.\nProper Usage is: java -jar s3delete.jar <BUCKET_NAME>");
@@ -31,7 +31,7 @@ public class S3Delete {
 
         // Instantiates a client
         AmazonS3 s3client = AmazonS3ClientBuilder.standard()
-                .withRegion(region).build();
+                .withRegion(REGION).build();
 
         // You can use this instead of the previous one if you want to delete a bucket in the default region
         // AmazonS3 s3client = AmazonS3ClientBuilder.defaultClient();

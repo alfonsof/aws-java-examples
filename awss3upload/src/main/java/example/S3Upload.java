@@ -18,8 +18,10 @@ import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 import com.amazonaws.services.s3.model.PutObjectRequest;
 
 public class S3Upload {
+
+    private static final String REGION = "eu-west-1";      // Region name
+
     public static void main(String[] args) throws IOException {
-        String region = "eu-west-1";    // Region name
         String bucketName;              // Bucket name
         String keyName;                 // Key name, it is the object name
         String localFileName;           // Upload local file name
@@ -39,7 +41,7 @@ public class S3Upload {
 
         // Instantiates a client
         AmazonS3 s3client = AmazonS3ClientBuilder.standard()
-                .withRegion(region).build();
+                .withRegion(REGION).build();
 
         try {
             System.out.println("Uploading an object to S3 from a file ...");
