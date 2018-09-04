@@ -1,6 +1,6 @@
 /**
- * S3Delete is an example that handles S3 buckets on AWS
- * Delete a S3 bucket
+ * S3Delete is an example that handles S3 buckets on AWS.
+ * Delete a S3 bucket.
  * You must provide 1 parameter:
  * BUCKET_NAME = Name of the bucket
  */
@@ -20,11 +20,11 @@ public class S3Delete {
         String region = "eu-west-1";  // Region name for the bucket
         
         if (args.length < 1) {
-            System.out.println("Not enough parameters. Proper Usage is: java -jar s3delete.jar <BUCKET_NAME>");
+            System.out.println("Not enough parameters.\nProper Usage is: java -jar s3delete.jar <BUCKET_NAME>");
             System.exit(1);
         }
 
-        // The name for the new bucket
+        // The name for the bucket
         String bucketName = args[0];
 
         System.out.println("Bucket name: " + bucketName);
@@ -37,15 +37,14 @@ public class S3Delete {
         // AmazonS3 s3client = AmazonS3ClientBuilder.defaultClient();
 
         try {
-            System.out.println("Deleting bucket...");
-
             if (s3client.doesBucketExistV2(bucketName)) {
+                System.out.println("Deleting bucket ...");
+                // Delete bucket
                 s3client.deleteBucket(bucketName);
                 System.out.println("Deleted");
             } else {
-                System.out.println("Bucket does not exist!!");
+                System.out.println("Error: Bucket does not exist!!");
             }
-
         } catch (AmazonServiceException ase) {
             System.out.println("Caught an AmazonServiceException, which " +
                     "means your request made it " +
