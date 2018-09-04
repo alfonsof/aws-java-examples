@@ -1,9 +1,9 @@
 /**
- * S3Copy is an example that handles S3 buckets on AWS
- * Copy a file from a S3 bucket to another S3 bucket
+ * S3Copy is an example that handles S3 buckets on AWS.
+ * Copy an onject from a S3 bucket to another S3 bucket.
  * You must provide 3 parameters:
  * SOURCE_BUCKET      = Source bucket name
- * SOURCE_FILE        = Source file name
+ * SOURCE_OBJECT      = Source object name
  * DESTINATION_BUCKET = Destination bucket name
  */
 
@@ -19,13 +19,14 @@ import com.amazonaws.services.s3.model.CopyObjectRequest;
 public class S3Copy {
 
     public static void main(String[] args) throws IOException {
+        String region = "eu-west-1";   // Region name
         String sourceBucketName;       // Source bucket name
         String sourceKey;              // Source key
         String destinationBucketName;  // Destination bucket name
         String destinationKey;         // Destination key
 
         if (args.length < 3) {
-            System.out.println("Not enough parameters. Proper Usage is: java -jar s3copy.jar <SOURCE_BUCKET> <SOURCE_FILE> <DESTINATION_BUCKET>");
+            System.out.println("Not enough parameters.\nProper Usage is: java -jar s3copy.jar <SOURCE_BUCKET> <SOURCE_OBJECT> <DESTINATION_BUCKET>");
             System.exit(1);
         }
 
@@ -35,15 +36,16 @@ public class S3Copy {
         destinationKey        = sourceKey;
 
         System.out.println("From - bucket: " + sourceBucketName);
-        System.out.println("From - file:   " + sourceKey);
+        System.out.println("From - object: " + sourceKey);
         System.out.println("To   - bucket: " + destinationBucketName);
-        System.out.println("To   - file:   " + destinationKey);
+        System.out.println("To   - object: " + destinationKey);
 
         // Instantiates a client
-        AmazonS3 s3client = AmazonS3ClientBuilder.defaultClient();
+        AmazonS3 s3client = AmazonS3ClientBuilder.standard()
+                .withRegion(region).build();
 
         try {
-            System.out.println("Copying object...");
+            System.out.println("Copying object ...");
 
             // Copy object
             CopyObjectRequest copyObjRequest = new CopyObjectRequest(
