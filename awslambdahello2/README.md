@@ -2,8 +2,7 @@
 
 This folder contains an AWS Lambda Function example in Java on AWS (Amazon Web Services).
 
-It handles a simple AWS Lambda function that shows the content of the call to the lambda function and returns a message including this content,
-using classes for Request and Response.
+It handles a simple AWS Lambda function that shows the content (JSON) of the call to the lambda function and returns a message including this content, using classes for Request and Response.
 
 ## Requirements
 
@@ -48,11 +47,13 @@ using classes for Request and Response.
   }
   ```
 
-* Test the AWS Lambda function:
+* Run the code.
 
-  Run the code in a AWS lambda function using the test button.
+  Run the code in an AWS lambda function using the test button.
 
-  You should see the next messages in the log:
+* Test the AWS Lambda function.
+
+  You should see the next message in the log:
 
   ```bash
   {

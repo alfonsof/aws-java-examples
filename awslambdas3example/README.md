@@ -40,7 +40,7 @@ It handles an AWS Lambda function that sends information to the log about an obj
 
   Copy a file in the source S3 bucket.
 
-  You should see the next messages in the log:
+  You should see the next message in the log:
 
   ```bash
   "Input: <LAMBDA_INPUT>"
