@@ -1,7 +1,7 @@
 /**
  * AWS Lambda Function S3 Move Java example
- * It handles an AWS Lambda function that moves a file
- * when it appears in a S3 bucket to another S3 bucket
+ * It handles an AWS Lambda function that moves an object
+ * when it appears in a S3 bucket to another S3 bucket.
  */
 
 package example;
@@ -43,15 +43,15 @@ public class S3Move implements RequestHandler<S3Event, String> {
 
         logger.log("Input: " + input);
         logger.log("Source Bucket: " + sourceBucketName + "\n");
-        logger.log("Source File:   " + sourceKeyName + "\n");
+        logger.log("Source Object: " + sourceKeyName + "\n");
         logger.log("Target Bucket: " + destinationBucketName + "\n");
-        logger.log("Target File:   " + destinationKeyName + "\n");
+        logger.log("Target Object: " + destinationKeyName + "\n");
 
         // Instantiates a client
         AmazonS3 s3client = AmazonS3ClientBuilder.defaultClient();
 
         try {
-            logger.log("Moving object...");
+            logger.log("Moving object ...");
 
             // Copy object
             CopyObjectRequest copyObjRequest = new CopyObjectRequest(

@@ -1,7 +1,7 @@
 /**
- * AWS Lambda Function S3 Java example
- * It handles an AWS simple Lambda function that sends information to the log about a file
- * when it appears in a S3 bucket
+ * AWS Lambda Function S3 Java example.
+ * It handles an AWS simple Lambda function that sends information to the log
+ * about an object when it appears in a S3 bucket.
  */
  
 package example;
@@ -21,12 +21,12 @@ public class S3Example implements RequestHandler<S3Event, String> {
         String srcBucketName = record.getS3().getBucket().getName();
 
         // Source File Name
-        String srcFileName = record.getS3().getObject().getKey(); // Name doesn't contain any special characters
+        String srcObjectName = record.getS3().getObject().getKey(); // Name doesn't contain any special characters
 
         context.getLogger().log("Input:  " + input + "\n");
         context.getLogger().log("Bucket: " + srcBucketName + "\n");
-        context.getLogger().log("File:   " + srcFileName + "\n");
+        context.getLogger().log("Object: " + srcObjectName + "\n");
 
-        return srcBucketName + "/" + srcFileName;
+        return srcBucketName + "/" + srcObjectName;
     }
 }
