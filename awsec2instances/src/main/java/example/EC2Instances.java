@@ -1,6 +1,6 @@
 /**
- * Example of how to handle AWS EC2 instances
- * Using the AWSHelper class
+ * Example of how to handle AWS EC2 instances.
+ * Using the AWSHelper class.
  */
 
 package example;

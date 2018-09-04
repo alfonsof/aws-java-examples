@@ -1,5 +1,5 @@
 /**
- * AWSHelper class with methods for managing AWS EC2 instances
+ * AWSHelper class with methods for managing AWS EC2 instances.
  */
 
 package example;
@@ -14,10 +14,10 @@ import com.amazonaws.services.ec2.model.*;
 
 
 public final class AWSHelper {
-    private static String amiId         = "ami-785db401";   // AMI Id
-    private static String instanceType  = "t2.micro";       // Instance Type
-    private static String instanceName  = "my-instance";    // Instance name
-    //private static String securityGroup = "default";        //"sg-068f967e";
+    private static final String REGION        = "eu-west-1";      // Region name
+    private static final String AMI_ID        = "ami-785db401";   // AMI Id
+    private static final String INSTANCE_TYPE = "t2.micro";       // Instance Type
+    //private static final String SECURITY_GROUP = "default";        //"sg-068f967e";
 
     private AWSHelper() {
     }
@@ -73,14 +73,15 @@ public final class AWSHelper {
      * Run an EC2 instance
      */
     public static String runInstance() {
-        final AmazonEC2 ec2 = AmazonEC2ClientBuilder.defaultClient();
+        final AmazonEC2 ec2 = AmazonEC2ClientBuilder.standard()
+                                .withRegion(REGION).build();
 
         RunInstancesRequest runRequest = new RunInstancesRequest()
-                .withImageId(amiId)
-                .withInstanceType(instanceType)
+                .withImageId(AMI_ID)
+                .withInstanceType(INSTANCE_TYPE)
                 .withMaxCount(1)
                 .withMinCount(1);
-        //.withSecurityGroups(securityGroup);
+                //.withSecurityGroups(SECURITY_GROUP);
 
         RunInstancesResult instancesResult = ec2.runInstances(runRequest);
 
@@ -93,8 +94,9 @@ public final class AWSHelper {
         String instanceId = instance.getInstanceId();
 
         // Tag EC2 Instance
-        tagInstance(ec2, instanceId, "Name", "my-instance");
-        System.out.println("Added Tag: Name with Value: my-instance");
+        String tagName = "my-instance";
+        tagInstance(ec2, instanceId, "Name", tagName);
+        System.out.printf("Added Tag: Name with Value: %s\n", tagName);
 
         return instanceId;
     }
@@ -104,7 +106,8 @@ public final class AWSHelper {
      * Describes all EC2 instances associated with an AWS account
      */
     public static void describeInstances() {
-        final AmazonEC2 ec2 = AmazonEC2ClientBuilder.defaultClient();
+        final AmazonEC2 ec2 = AmazonEC2ClientBuilder.standard()
+                                .withRegion(REGION).build();
         boolean done = false;
 
         while (!done) {
@@ -113,13 +116,12 @@ public final class AWSHelper {
 
             for (Reservation reservation : response.getReservations()) {
                 for (Instance instance : reservation.getInstances()) {
-
                     System.out.printf(
-                            "Found reservation with id %s, " +
-                                    "AMI %s, " +
-                                    "type %s, " +
-                                    "state %s " +
-                                    "and monitoring state %s\n",
+                            "Found reservation with id \"%s\", " +
+                                    "AMI \"%s\", " +
+                                    "type \"%s\", " +
+                                    "state \"%s\" " +
+                                    "and monitoring state \"%s\"\n",
                             instance.getInstanceId(),
                             instance.getImageId(),
                             instance.getInstanceType(),
@@ -133,11 +135,11 @@ public final class AWSHelper {
 
             request.setNextToken(response.getNextToken());
 
-            if(response.getNextToken() == null) {
+            if (response.getNextToken() == null) {
                 done = true;
             }
         }
-        System.out.printf("\n");
+        System.out.println();
     }
 
 
@@ -147,11 +149,12 @@ public final class AWSHelper {
     public static void describeInstance(String instanceId) {
 
         if (instanceId == null || instanceId.isEmpty()) {
-            System.out.println("ERROR: NO Instance");
+            System.out.println("Error: NO Instance");
             return;
         }
 
-        final AmazonEC2 ec2 = AmazonEC2ClientBuilder.defaultClient();
+        final AmazonEC2 ec2 = AmazonEC2ClientBuilder.standard()
+                                    .withRegion(REGION).build();
 
         DescribeInstancesRequest request = new DescribeInstancesRequest()
                 .withInstanceIds(instanceId);
@@ -189,7 +192,7 @@ public final class AWSHelper {
         for (int i = 0; i < tags.size(); i++) {
             System.out.println("Tags:              " + tags.get(i));
         }
-        System.out.printf("\n");
+        System.out.println();
     }
 
 
@@ -199,18 +202,19 @@ public final class AWSHelper {
     public static void startInstance(String instanceId) {
 
         if (instanceId == null || instanceId.isEmpty()) {
-            System.out.println("ERROR: NO Instance");
+            System.out.println("Error: NO Instance");
             return;
         }
 
-        final AmazonEC2 ec2 = AmazonEC2ClientBuilder.defaultClient();
+        final AmazonEC2 ec2 = AmazonEC2ClientBuilder.standard()
+                                    .withRegion(REGION).build();
 
         StartInstancesRequest request = new StartInstancesRequest()
                 .withInstanceIds(instanceId);
 
         ec2.startInstances(request);
 
-        System.out.printf("Successfully started instance %s\n", instanceId);
+        System.out.printf("Successfully started instance: %s\n", instanceId);
     }
 
 
@@ -220,18 +224,19 @@ public final class AWSHelper {
     public static void stopInstance(String instanceId) {
 
         if (instanceId == null || instanceId.isEmpty()) {
-            System.out.println("ERROR: NO Instance");
+            System.out.println("Error: NO Instance");
             return;
         }
 
-        final AmazonEC2 ec2 = AmazonEC2ClientBuilder.defaultClient();
+        final AmazonEC2 ec2 = AmazonEC2ClientBuilder.standard()
+                                    .withRegion(REGION).build();
 
         StopInstancesRequest request = new StopInstancesRequest()
                 .withInstanceIds(instanceId);
 
         ec2.stopInstances(request);
 
-        System.out.printf("Successfully stop instance %s\n", instanceId);
+        System.out.printf("Successfully stop instance: %s\n", instanceId);
     }
 
 
@@ -241,18 +246,19 @@ public final class AWSHelper {
     public static void rebootInstance(String instanceId) {
 
         if (instanceId == null || instanceId.isEmpty()) {
-            System.out.println("ERROR: NO Instance");
+            System.out.println("Error: NO Instance");
             return;
         }
 
-        final AmazonEC2 ec2 = AmazonEC2ClientBuilder.defaultClient();
+        final AmazonEC2 ec2 = AmazonEC2ClientBuilder.standard()
+                                .withRegion(REGION).build();
 
         RebootInstancesRequest request = new RebootInstancesRequest()
                 .withInstanceIds(instanceId);
 
         RebootInstancesResult response = ec2.rebootInstances(request);
 
-        System.out.printf("Successfully rebooted instance %s\n", instanceId);
+        System.out.printf("Successfully rebooted instance: %s\n", instanceId);
     }
 
 
@@ -262,17 +268,18 @@ public final class AWSHelper {
     public static void terminateInstance(String instanceId) {
 
         if (instanceId == null || instanceId.isEmpty()) {
-            System.out.println("ERROR: NO Instance");
+            System.out.println("Error: NO Instance");
             return;
         }
 
-        final AmazonEC2 ec2 = AmazonEC2ClientBuilder.defaultClient();
+        final AmazonEC2 ec2 = AmazonEC2ClientBuilder.standard()
+                                    .withRegion(REGION).build();
 
         TerminateInstancesRequest request = new TerminateInstancesRequest()
                 .withInstanceIds(instanceId);
 
         TerminateInstancesResult response = ec2.terminateInstances(request);
 
-        System.out.printf("Successfully terminated instance %s\n", instanceId);
+        System.out.printf("Successfully terminated instance: %s\n", instanceId);
     }
 }
