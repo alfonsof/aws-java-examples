@@ -97,8 +97,6 @@ public final class AWSHelper {
         tagInstance(ec2, instanceId, "Name", tagName);
         System.out.printf("Added Tag: Name with Value: %s\n", tagName);
 
-        System.out.println("Created");
-
         return instanceId;
     }
 
@@ -177,8 +175,6 @@ public final class AWSHelper {
                 .withInstanceIds(instanceId);
 
         ec2.startInstances(request);
-
-        System.out.printf("Started instance: %s\n", instanceId);
     }
 
 
@@ -201,8 +197,6 @@ public final class AWSHelper {
                 .withInstanceIds(instanceId);
 
         ec2.stopInstances(request);
-
-        System.out.printf("Stop instance: %s\n", instanceId);
     }
 
 
@@ -225,8 +219,6 @@ public final class AWSHelper {
                 .withInstanceIds(instanceId);
 
         RebootInstancesResult response = ec2.rebootInstances(request);
-
-        System.out.printf("Rebooted instance: %s\n", instanceId);
     }
 
 
@@ -249,8 +241,6 @@ public final class AWSHelper {
                 .withInstanceIds(instanceId);
 
         TerminateInstancesResult response = ec2.terminateInstances(request);
-
-        System.out.printf("Terminated instance: %s\n", instanceId);
     }
 
 
