@@ -1,6 +1,6 @@
 /**
- * AWSHelper class with methods for managing AWS EC2 instances.
- */
+     * AWSHelper class with methods for managing AWS EC2 instances.
+     */
 
 package example;
 
@@ -24,91 +24,14 @@ public final class AWSHelper {
 
 
     /**
-     * Wait some milliseconds
-     */
-    public static void wait(int millisec) {
-        try {
-            Thread.sleep(millisec);
-        } catch (InterruptedException e) {
-            // swallow
-        }
-    }
-
-
-    /**
-     * Create a tag attached an EC2 instance
-     */
-    public static void tagInstance(AmazonEC2 ec2, String instanceId, String tagName, String value) {
-        CreateTagsRequest tagRequest = new CreateTagsRequest()
-                .withResources(instanceId)
-                .withTags(new Tag(tagName, value));
-        ec2.createTags(tagRequest);
-    }
-
-
-    /**
-     * Create some tags attached EC2 instances
-     */
-    public static void tagResources(AmazonEC2 ec2, List<String> resources, List<Tag> tags) {
-        // Create a tag request.
-        CreateTagsRequest createTagsRequest = new CreateTagsRequest();
-        createTagsRequest.setResources(resources);
-        createTagsRequest.setTags(tags);
-
-        // Try to tag the tag request submitted
-        try {
-            ec2.createTags(createTagsRequest);
-        } catch (AmazonServiceException e) {
-            // Write out any exceptions that may have occurred.
-            System.out.println("Error terminating instances");
-            System.out.println("Caught Exception:     " + e.getMessage());
-            System.out.println("Response Status Code: " + e.getStatusCode());
-            System.out.println("Error Code:           " + e.getErrorCode());
-            System.out.println("Request ID:           " + e.getRequestId());
-        }
-    }
-
-
-    /**
-     * Run an EC2 instance
-     */
-    public static String runInstance() {
-        final AmazonEC2 ec2 = AmazonEC2ClientBuilder.standard()
-                                .withRegion(REGION).build();
-
-        RunInstancesRequest runRequest = new RunInstancesRequest()
-                .withImageId(AMI_ID)
-                .withInstanceType(INSTANCE_TYPE)
-                .withMaxCount(1)
-                .withMinCount(1);
-                //.withSecurityGroups(SECURITY_GROUP);
-
-        RunInstancesResult instancesResult = ec2.runInstances(runRequest);
-
-        String reservationId = instancesResult.getReservation().getReservationId();
-
-        System.out.println("Reservation Id:   " + reservationId);
-
-        List<Instance> instances = instancesResult.getReservation().getInstances();
-        Instance instance = instances.get(0);
-        String instanceId = instance.getInstanceId();
-
-        // Tag EC2 Instance
-        String tagName = "my-instance";
-        tagInstance(ec2, instanceId, "Name", tagName);
-        System.out.printf("Added Tag: Name with Value: %s\n", tagName);
-
-        return instanceId;
-    }
-
-
-    /**
      * Describes all EC2 instances associated with an AWS account
      */
     public static void describeInstances() {
         final AmazonEC2 ec2 = AmazonEC2ClientBuilder.standard()
-                                .withRegion(REGION).build();
+                .withRegion(REGION).build();
         boolean done = false;
+
+        System.out.println("Describing EC2 instances ...");
 
         while (!done) {
             DescribeInstancesRequest request = new DescribeInstancesRequest();
@@ -144,17 +67,56 @@ public final class AWSHelper {
 
 
     /**
+     * Run an EC2 instance
+     */
+    public static String runInstance() {
+        final AmazonEC2 ec2 = AmazonEC2ClientBuilder.standard()
+                                .withRegion(REGION).build();
+
+        System.out.println("Creating EC2 instance ...");
+
+        RunInstancesRequest runRequest = new RunInstancesRequest()
+                .withImageId(AMI_ID)
+                .withInstanceType(INSTANCE_TYPE)
+                .withMaxCount(1)
+                .withMinCount(1);
+                //.withSecurityGroups(SECURITY_GROUP);
+
+        RunInstancesResult instancesResult = ec2.runInstances(runRequest);
+
+        String reservationId = instancesResult.getReservation().getReservationId();
+
+        System.out.println("Reservation Id:   " + reservationId);
+
+        List<Instance> instances = instancesResult.getReservation().getInstances();
+        Instance instance = instances.get(0);
+        String instanceId = instance.getInstanceId();
+
+        // Tag EC2 Instance
+        String tagName = "my-instance";
+        tagInstance(ec2, instanceId, "Name", tagName);
+        System.out.printf("Added Tag: Name with Value: %s\n", tagName);
+
+        System.out.println("Created");
+
+        return instanceId;
+    }
+
+
+    /**
      * Describes an EC2 instance
      */
     public static void describeInstance(String instanceId) {
 
         if (instanceId == null || instanceId.isEmpty()) {
-            System.out.println("Error: NO Instance");
+            System.out.println("Error: NO Instance.");
             return;
         }
 
         final AmazonEC2 ec2 = AmazonEC2ClientBuilder.standard()
                                     .withRegion(REGION).build();
+
+        System.out.println("Describing EC2 instance ...");
 
         DescribeInstancesRequest request = new DescribeInstancesRequest()
                 .withInstanceIds(instanceId);
@@ -202,19 +164,21 @@ public final class AWSHelper {
     public static void startInstance(String instanceId) {
 
         if (instanceId == null || instanceId.isEmpty()) {
-            System.out.println("Error: NO Instance");
+            System.out.println("Error: NO Instance.");
             return;
         }
 
         final AmazonEC2 ec2 = AmazonEC2ClientBuilder.standard()
                                     .withRegion(REGION).build();
 
+        System.out.println("Starting EC2 instance ...");
+
         StartInstancesRequest request = new StartInstancesRequest()
                 .withInstanceIds(instanceId);
 
         ec2.startInstances(request);
 
-        System.out.printf("Successfully started instance: %s\n", instanceId);
+        System.out.printf("Started instance: %s\n", instanceId);
     }
 
 
@@ -224,19 +188,21 @@ public final class AWSHelper {
     public static void stopInstance(String instanceId) {
 
         if (instanceId == null || instanceId.isEmpty()) {
-            System.out.println("Error: NO Instance");
+            System.out.println("Error: NO Instance.");
             return;
         }
 
         final AmazonEC2 ec2 = AmazonEC2ClientBuilder.standard()
                                     .withRegion(REGION).build();
 
+        System.out.println("Stopping EC2 instance ...");
+
         StopInstancesRequest request = new StopInstancesRequest()
                 .withInstanceIds(instanceId);
 
         ec2.stopInstances(request);
 
-        System.out.printf("Successfully stop instance: %s\n", instanceId);
+        System.out.printf("Stop instance: %s\n", instanceId);
     }
 
 
@@ -246,19 +212,21 @@ public final class AWSHelper {
     public static void rebootInstance(String instanceId) {
 
         if (instanceId == null || instanceId.isEmpty()) {
-            System.out.println("Error: NO Instance");
+            System.out.println("Error: NO Instance.");
             return;
         }
 
         final AmazonEC2 ec2 = AmazonEC2ClientBuilder.standard()
                                 .withRegion(REGION).build();
 
+        System.out.println("Rebooting EC2 instance ...");
+
         RebootInstancesRequest request = new RebootInstancesRequest()
                 .withInstanceIds(instanceId);
 
         RebootInstancesResult response = ec2.rebootInstances(request);
 
-        System.out.printf("Successfully rebooted instance: %s\n", instanceId);
+        System.out.printf("Rebooted instance: %s\n", instanceId);
     }
 
 
@@ -268,18 +236,66 @@ public final class AWSHelper {
     public static void terminateInstance(String instanceId) {
 
         if (instanceId == null || instanceId.isEmpty()) {
-            System.out.println("Error: NO Instance");
+            System.out.println("Error: NO Instance.");
             return;
         }
 
         final AmazonEC2 ec2 = AmazonEC2ClientBuilder.standard()
                                     .withRegion(REGION).build();
 
+        System.out.println("Terminating EC2 instance ...");
+
         TerminateInstancesRequest request = new TerminateInstancesRequest()
                 .withInstanceIds(instanceId);
 
         TerminateInstancesResult response = ec2.terminateInstances(request);
 
-        System.out.printf("Successfully terminated instance: %s\n", instanceId);
+        System.out.printf("Terminated instance: %s\n", instanceId);
+    }
+
+
+    /**
+     * Wait some milliseconds
+     */
+    private static void wait(int millisec) {
+        try {
+            Thread.sleep(millisec);
+        } catch (InterruptedException e) {
+            // swallow
+        }
+    }
+
+
+    /**
+     * Create a tag attached an EC2 instance
+     */
+    private static void tagInstance(AmazonEC2 ec2, String instanceId, String tagName, String value) {
+        CreateTagsRequest tagRequest = new CreateTagsRequest()
+                .withResources(instanceId)
+                .withTags(new Tag(tagName, value));
+        ec2.createTags(tagRequest);
+    }
+
+
+    /**
+     * Create some tags attached EC2 instances
+     */
+    private static void tagResources(AmazonEC2 ec2, List<String> resources, List<Tag> tags) {
+        // Create a tag request.
+        CreateTagsRequest createTagsRequest = new CreateTagsRequest();
+        createTagsRequest.setResources(resources);
+        createTagsRequest.setTags(tags);
+
+        // Try to tag the tag request submitted
+        try {
+            ec2.createTags(createTagsRequest);
+        } catch (AmazonServiceException e) {
+            // Write out any exceptions that may have occurred.
+            System.out.println("Error terminating instances");
+            System.out.println("Caught Exception:     " + e.getMessage());
+            System.out.println("Response Status Code: " + e.getStatusCode());
+            System.out.println("Error Code:           " + e.getErrorCode());
+            System.out.println("Request ID:           " + e.getRequestId());
+        }
     }
 }

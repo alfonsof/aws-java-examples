@@ -54,6 +54,7 @@ public class EC2Instances {
 
             switch (option) {
                 case 0:
+                    System.out.println("\nBye");
                     break;
                 case 1:  // Describe all instances
                     AWSHelper.describeInstances();
