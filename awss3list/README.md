@@ -7,7 +7,8 @@ List information about the objects in a S3 bucket.
 ## Requirements
 
 * You must have an [Amazon Web Services (AWS)](http://aws.amazon.com/) account.
-* The code was written for Java 8 and AWS SDK for Java 1.11.
+
+* The code was written for Java 8 and AWS SDK for Java 1.x.
 
 ## Using the code
 
