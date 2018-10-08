@@ -1,4 +1,4 @@
-# AWS Lambda Function other Hello World Java example
+# AWS Lambda Function Hello World JSON Java example
 
 This folder contains an AWS Lambda Function example in Java on AWS (Amazon Web Services).
 
@@ -23,6 +23,11 @@ It handles a simple AWS Lambda function that shows the content (JSON) of the cal
   * The triggers: Nothing
   * The resources the function's role has access: Amazon CloudWatch Logs
 
+  Basic Settings for the lambda function:
+
+  * Memory (MB): 128
+  * Timeout: 3 sec
+
   Handler function:
 
   ```bash
@@ -34,8 +39,12 @@ It handles a simple AWS Lambda function that shows the content (JSON) of the cal
   Artifact:
 
   ```bash
-  awslambdahello2.jar
+  awslambdahellojson.jar
   ```
+
+* Save the Lambda function.
+
+  It deploys the Lambda function.
 
 * Create and configure a Test event:
 

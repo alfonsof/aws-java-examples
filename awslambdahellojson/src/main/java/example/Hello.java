@@ -1,5 +1,5 @@
 /**
- * AWS Lambda Function Hello World Java example.
+ * AWS Lambda Function Hello World JSON Java example.
  * Handle an AWS simple Lambda function that show the content (JSON) of the call
  * to the lambda function and returns a message including this content
  * using classes for Request and Response.
