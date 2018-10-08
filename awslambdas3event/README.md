@@ -1,4 +1,4 @@
-# AWS Lambda Function S3 Java example
+# AWS Lambda Function S3 Event Java example
 
 This folder contains an AWS Lambda Function example in Java on AWS (Amazon Web Services).
 
@@ -17,25 +17,32 @@ It handles an AWS Lambda function that sends information to the log about an obj
 * Create a S3 bucket.
 
 * Create an AWS lambda function:
-  * Name: <LAMBDA_NAME>
-  * Runtime: Java 8
-  * Role: Role-VM-buckets
-  * The triggers: S3 (with access to the S3 bucket and Event type: ObjectCreated)
-  * The resources the function's role has access: Amazon CloudWatch Logs
-
-  Handler function:
-
-  ```bash
-  example.S3example::handleRequest
-  ```
+  * Name: `<LAMBDA_NAME>`
+  * Runtime: `Java 8`
+  * Handler: `example.S3CreationEvent::handleRequest`
+  * Role: `lambda-basic-execution`
+  * The triggers:
+    * `S3`
+      * Bucket: `<BUCKET_NAME>`
+      * Event type: `ObjectCreated`
+      * Enable trigger: `Yes`
+  * The resources that the function's role has access to:
+    * `Amazon CloudWatch Logs`
+  * Basic Settings for the lambda function:
+    * Memory (MB): `128`
+    * Timeout: `3 sec`
 
 * Upload the Java JAR file.
 
   Artifact:
 
   ```bash
-  awslambdas3example.jar
+  awslambdas3event.jar
   ```
+
+* Save the Lambda function.
+
+  It deploys the Lambda function.
 
 * Test the function:
 

@@ -1,5 +1,5 @@
 /**
- * AWS Lambda Function S3 Java example.
+ * AWS Lambda Function S3 Event Java example.
  * It handles an AWS simple Lambda function that sends information to the log
  * about an object when it appears in a S3 bucket.
  */
@@ -8,12 +8,11 @@ package example;
 
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
-import com.amazonaws.services.lambda.runtime.events.S3Event;
 import com.amazonaws.services.s3.event.S3EventNotification.S3EventNotificationRecord;
 
-public class S3Example implements RequestHandler<S3Event, String> {
+public class S3CreationEvent implements RequestHandler<com.amazonaws.services.lambda.runtime.events.S3Event, String> {
 
-    public String handleRequest(S3Event input, Context context) {
+    public String handleRequest(com.amazonaws.services.lambda.runtime.events.S3Event input, Context context) {
         // Get Event Record
         S3EventNotificationRecord record = input.getRecords().get(0);
 
