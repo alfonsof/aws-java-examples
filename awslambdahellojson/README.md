@@ -17,22 +17,17 @@ It handles a simple AWS Lambda function that shows the content (JSON) of the cal
 * Select AWS Lambda in the services menu.
 
 * Create an AWS lambda function:
-  * Name: <LAMBDA_NAME>
-  * Runtime: Java 8
-  * Role: lambda-basic-execution
-  * The triggers: Nothing
-  * The resources the function's role has access: Amazon CloudWatch Logs
-
-  Basic Settings for the lambda function:
-
-  * Memory (MB): 128
-  * Timeout: 3 sec
-
-  Handler function:
-
-  ```bash
-  example.Hello::handleRequest
-  ```
+  * Name: `<LAMBDA_NAME>`
+  * Runtime: `Java 8`
+  * Handler: `example.Hello::handleRequest`
+  * Role: `lambda-basic-execution`
+  * The triggers:
+    * `Nothing`
+  * The resources that the function's role has access to:
+    * `Amazon CloudWatch Logs`
+  * Basic Settings for the lambda function:
+    * Memory (MB): `128`
+    * Timeout: `3 sec`
 
 * Upload the Java JAR file.
 

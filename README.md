@@ -23,8 +23,8 @@ This is the list of examples:
 **Compute - AWS Lambda:**
 
 * [awslambdahello](/awslambdahello) - AWS Lambda Function Hello World: Example of how to handle an AWS simple Lambda function and a text input.
-* [awslambdahello2](/awslambdahello2) - AWS Lambda Function other Hello World: Example of how to handle an AWS simple Lambda  function and a JSON input, using classes for Request and Response.
-* [awslambdas3example](/awslambdas3example) - AWS Lambda Function S3 example: Example of how to handle an AWS Lambda Function and send information to the log about an object when it appears in a S3 bucket.
+* [awslambdahellojson](/awslambdahellojson) - AWS Lambda Function Hello World JSON: Example of how to handle an AWS simple Lambda  function and a JSON input, using classes for Request and Response.
+* [awslambdas3event](/awslambdas3event) - AWS Lambda Function S3 Event: Example of how to handle an AWS Lambda Function and send information to the log about an object when it appears in a S3 bucket.
 * [awslambdas3copy](/awslambdas3copy) - AWS Lambda Function S3 Copy: Example of how to handle an AWS Lambda function and copy an object when it appears in a S3 bucket to another S3 bucket.
 * [awslambdas3move](/awslambdas3move) - AWS Lambda Function S3 Move: Example of how to handle an AWS Lambda function and move an object when it appears in a S3 bucket to another S3 bucket.
 
