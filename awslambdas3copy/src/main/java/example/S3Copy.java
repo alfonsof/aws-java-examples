@@ -20,11 +20,13 @@ import com.amazonaws.services.lambda.runtime.LambdaLogger;
 
 public class S3Copy implements RequestHandler<S3Event, String> {
 
+    private static final String DESTINATION_BUCKET        = "targetvm";      // Destination bucket name
+
     public String handleRequest(S3Event input, Context context) {
-        String sourceBucketName;                      // Source bucket name
-        String sourceKeyName;                         // Source key
-        String destinationBucketName = "targetvm";    // Destination bucket name
-        String destinationKeyName;                    // Destination key
+        String sourceBucketName;              // Source bucket name
+        String sourceKeyName;                 // Source key name
+        String destinationBucketName;         // Destination bucket name
+        String destinationKeyName;            // Destination key name
 
         LambdaLogger logger = context.getLogger();
 
@@ -34,8 +36,11 @@ public class S3Copy implements RequestHandler<S3Event, String> {
         // Source Bucket Name
         sourceBucketName = record.getS3().getBucket().getName();
 
-        // Source File Name
+        // Source Object Name
         sourceKeyName = record.getS3().getObject().getKey(); // Name doesn't contain any special characters
+
+        // Destination Bucket Name
+        destinationBucketName = DESTINATION_BUCKET;
 
         // Destination File Name
         destinationKeyName = sourceKeyName;

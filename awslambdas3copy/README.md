@@ -12,13 +12,13 @@ It handles an AWS Lambda function that copies an object when it appears in a S3 
 
 ## Using the code
 
-* You can select the destination bucket name changing the value of `destinationBucketName` variable in the code.
+* You can select the destination bucket name changing the value of `DESTINATION_BUCKET` variable in the code.
 
 * Access the AWS console.
 
 * Create a S3 bucket for the source and another S3 bucket for the target.
 
-* Create an IAM Policy: Policy-VM-buckets:
+* Create an IAM Policy: ex. `Policy-VM-buckets`
 
   Content of the IAM policy:
 
@@ -68,27 +68,28 @@ It handles an AWS Lambda function that copies an object when it appears in a S3 
   }
   ```
 
-* Create a role: Role-VM-buckets:
+* Create a role: `Role-VM-buckets`.
 
-  This role uses the policy: Policy-VM-buckets
+  This role uses the policy `Policy-VM-buckets`
 
 * Create an AWS lambda function:
-  * Name: <LAMBDA_NAME>
-  * Runtime: Java 8
-  * Role: Role-VM-buckets
-  * The triggers: S3 (with access to the S3 bucket and Event type: ObjectCreated)
-  * The resources the function's role has access: Amazon CloudWatch, Amazon CloudWatch Logs, Amazon S3
-
-  Basic Settings for the lambda function:
-
-  * Memory (MB): 1024
-  * Timeout: 10 sec
-
-  Handler function:
-
-  ```bash
-  example.S3Copy::handleRequest
-  ```
+  * Name: `<LAMBDA_NAME>`
+  * Runtime: `Java 8`
+  * Handler: `example.S3Copy::handleRequest`
+  * Role: `Role-VM-buckets`
+  * The triggers:
+    * `S3`
+      * Bucket: `<SOURCE_BUCKET_NAME>`
+      * Event type: `ObjectCreated`
+      * Enable trigger: `Yes`
+  * The resources that the function's role has access to:
+    * `Amazon CloudWatch`
+    * `Amazon CloudWatch Logs`
+    * `Amazon S3`
+      * Lambda obtained information from the policy statements: `Managed policy Policy-VM-buckets`
+  * Basic Settings for the lambda function:
+    * Memory (MB): `1024`
+    * Timeout: `10 sec`
 
 * Upload the Java JAR file.
 
@@ -97,6 +98,10 @@ It handles an AWS Lambda function that copies an object when it appears in a S3 
   ```bash
   awslambdas3copy.jar
   ```
+
+* Save the Lambda function.
+
+  It deploys the Lambda function.
 
 * Test the function:
 
