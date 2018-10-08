@@ -41,7 +41,7 @@ It handles a simple AWS Lambda function that shows the content (JSON) of the cal
 
   It deploys the Lambda function.
 
-* Create and configure a Test event:
+* Create and configure a Test event.
 
   Input JSON file content:
 
