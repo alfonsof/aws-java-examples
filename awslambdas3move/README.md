@@ -1,6 +1,7 @@
 # AWS Lambda Function S3 Move Java example
 
 This folder contains an AWS Lambda Function example in Java on AWS (Amazon Web Services).
+
 It handles an AWS Lambda function that moves an object when it appears in a S3 bucket to another S3 bucket.
 
 ## Requirements
@@ -86,7 +87,10 @@ It handles an AWS Lambda function that moves an object when it appears in a S3 b
     * `Amazon CloudWatch`
     * `Amazon CloudWatch Logs`
     * `Amazon S3`
-      * Lambda obtained information from the policy statements: `Managed policy Policy-VM-buckets`
+      * Lambda obtained information from the policy statements: `Managed policy Policy-VM-buckets`:
+        * `s3:GetObject` --> `Allow: arn:aws:s3:::sourcevm/*`
+        * `s3:DeleteObject` --> `Allow: arn:aws:s3:::sourcevm/*`
+        * `s3:PutObject` --> `Allow: arn:aws:s3:::targetvm/*`
   * Basic Settings for the lambda function:
     * Memory (MB): `1024`
     * Timeout: `10 sec`
