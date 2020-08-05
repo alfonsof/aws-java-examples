@@ -62,6 +62,6 @@ It handles a simple AWS Lambda function that shows the content (JSON) of the cal
 
   ```bash
   {
-    "message": "Hello Peter Parker!"
+    "greetings":"Hello Peter Parker."
   }
   ```
