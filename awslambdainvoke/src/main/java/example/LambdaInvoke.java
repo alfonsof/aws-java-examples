@@ -16,8 +16,8 @@ import com.amazonaws.services.lambda.AWSLambdaClientBuilder;
 import com.amazonaws.services.lambda.model.InvokeRequest;
 import com.amazonaws.services.lambda.model.InvokeResult;
 import com.amazonaws.services.lambda.model.ServiceException;
-
 import java.nio.charset.StandardCharsets;
+
 
 public class LambdaInvoke {
 
@@ -54,6 +54,8 @@ public class LambdaInvoke {
             //write out the return value
             System.out.println("Lambda return value: " + ans);
 
+        } catch (ServiceException e) {
+            System.out.println("ServiceException: " + e);
         } catch (AmazonServiceException ase) {
             System.out.println("Caught an AmazonServiceException, " +
                     "which means your request made it " +
