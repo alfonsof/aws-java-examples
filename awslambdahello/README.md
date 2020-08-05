@@ -26,8 +26,8 @@ It handles a simple AWS Lambda function that shows the content (text) of the cal
   * The resources that the function's role has access to:
     * `Amazon CloudWatch Logs`
   * Basic Settings for the lambda function:
-    * Memory (MB): `128`
-    * Timeout: `3 sec`
+    * Memory (MB): `512`
+    * Timeout: `15 sec`
 
 * Upload the Java JAR file.
 
