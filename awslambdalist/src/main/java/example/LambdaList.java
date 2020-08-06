@@ -24,19 +24,19 @@ public class LambdaList {
 
     public static void main(String[] args) throws IOException {
 
+        if (args.length < 1) {
+            System.out.println("Not enough parameters.\nProper Usage is: java -jar lambdalist.jar <FUNCTION_NAME>");
+            System.exit(1);
+        }
+
+        String functionName = args[0];
+
+        System.out.println("Lambda function name: " + functionName);
+
         try {
             AWSLambda awsLambda = AWSLambdaClientBuilder.standard()
                     .withCredentials(new ProfileCredentialsProvider())
                     .withRegion(REGION).build();
-
-            if (args.length < 1) {
-                System.out.println("Not enough parameters.\nProper Usage is: java -jar lambdalist.jar <FUNCTION_NAME>");
-                System.exit(1);
-            }
-
-            String functionName = args[0];
-
-            System.out.println("Lambda function name: " + functionName);
 
             GetFunctionConfigurationRequest configRequest = new GetFunctionConfigurationRequest()
                     .withFunctionName(functionName);
