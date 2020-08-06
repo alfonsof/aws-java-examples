@@ -73,9 +73,17 @@ List information of a Lambda function.
   java -jar awslambdalist.jar lambda-function
   ```
 
-  Function name appear as:
+  You can use as Lambda function name 2 options:
   
-  `HelloJsonJava`
+  * Function name
+    
+    Ex.: `HelloJsonJava`
+
+  * ARN value
+  
+    Ex.: `arn:aws:lambda:eu-west-1:123456789012:function:HelloJsonJava`
+  
+    You can retrieve the ARN value by looking at the function in the AWS Console.
   
 * Test the application.
 
