@@ -73,7 +73,7 @@ Delete a Lambda function.
   java -jar awslambdadelete.jar lambda-function
   ```
 
-  You can use as Lambda function name:
+  You can use as Lambda function name 2 options:
   
   * Function name
     
