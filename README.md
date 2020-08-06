@@ -29,7 +29,7 @@ This is the list of examples:
 * [awslambdas3move](/awslambdas3move) - AWS Lambda Function S3 Move: Example of how to handle an AWS Lambda function and move an object when it appears in a S3 bucket to another S3 bucket.
 * [awslambdainvoke](/awslambdainvoke) - AWS Lambda Function Invoke: Example of how to handle an AWS Lambda function and invoke it.
 * [awslambdalist](/awslambdalist) - AWS Lambda Function List: Example of how to handle an AWS Lambda function and list information about it.
-* [awslambdalistall](/awslambdalistall) - AWS Lambda Function List All: Example of how to handle an AWS Lambda function and list all Lambda functions and their information.
+* [awslambdalistall](/awslambdalistall) - AWS Lambda Function List All: Example of how to handle AWS Lambda functions and list all Lambda functions and their information.
 
 **Storage - Amazon S3:**
 
