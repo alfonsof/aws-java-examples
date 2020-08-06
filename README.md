@@ -30,6 +30,7 @@ This is the list of examples:
 * [awslambdainvoke](/awslambdainvoke) - AWS Lambda Function Invoke: Example of how to handle an AWS Lambda function and invoke it.
 * [awslambdalist](/awslambdalist) - AWS Lambda Function List: Example of how to handle an AWS Lambda function and list information about it.
 * [awslambdalistall](/awslambdalistall) - AWS Lambda Function List All: Example of how to handle AWS Lambda functions and list all Lambda functions and their information.
+* [awslambdadelete](/awslambdadelete) - AWS Lambda Function Delete: Example of how to handle an AWS Lambda function and delete it.
 
 **Storage - Amazon S3:**
 
