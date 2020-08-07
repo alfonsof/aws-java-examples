@@ -55,7 +55,7 @@ Invoke a Lambda function.
     set AWS_SECRET_ACCESS_KEY=<your_secret_access_key>
     ```
 
-* Create a Lambda function on AWS.
+* You can create a Lambda function on AWS.
 
   You can use the AWS Lambda Function Hello World JSON Java example: [awslambdahellojson](/awslambdahellojson).
 
