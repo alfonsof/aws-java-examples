@@ -87,4 +87,4 @@ List information of a Lambda function.
   
 * Test the application.
 
-  You should see the response with the information of the Lambda function.
+  You should see the information of the Lambda function.
