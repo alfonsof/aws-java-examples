@@ -8,7 +8,11 @@ It handles an AWS Lambda function that moves an object when it appears in a S3 b
 
 * You must have an [Amazon Web Services (AWS)](http://aws.amazon.com/) account.
 
-* The code was written for Java 8 and AWS SDK for Java 1.x.
+* The code was written for:
+ 
+  *  Java 8
+  *  Apache Maven (> 3.0)
+  *  AWS SDK for Java (SDK V1)
 
 ## Using the code
 
