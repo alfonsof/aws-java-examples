@@ -1,5 +1,5 @@
 /**
- * ResponseClass for managing the Response 
+ * ResponseClass for managing the Response
  * in a AWS Lambda Function
  */
 

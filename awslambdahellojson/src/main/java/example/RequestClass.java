@@ -1,5 +1,5 @@
 /**
- * RequestClass for managing the Request 
+ * RequestClass for managing the Request
  * in a AWS Lambda Function
  */
 
