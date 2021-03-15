@@ -12,7 +12,7 @@ It handles a simple AWS Lambda function that shows the content (JSON) of the cal
  
   *  Java 8
   *  Apache Maven (> 3.0)
-  *  AWS SDK for Java (SDK V1)
+  *  AWS Lambda Java Core Library
 
 ## Using the code
 
@@ -62,10 +62,18 @@ It handles a simple AWS Lambda function that shows the content (JSON) of the cal
 
 * Test the AWS Lambda function.
 
-  You should see the next message in the log:
+  You should see the next message in the return:
 
   ```bash
   {
-    "greetings":"Hello Peter Parker."
+    "greetings": "Hello Peter Parker."
   }
   ```
+
+  You should see the next message in the log:
+
+  ```bash
+  "First Name: Peter"
+  "Last Name: Parker"
+  ```
+
