@@ -11,7 +11,10 @@ It handles an AWS Lambda function that sends information to the log about an obj
 * The code was written for:
  
   *  Java 8
-  *  Apache Maven (> 3.0)
+  *  Apache Maven 3
+  *  AWS Java Lambda Support Libraries:
+     *  AWS Lambda Java Core Library
+     *  AWS Lambda Java Events Library
   *  AWS SDK for Java (SDK V1)
 
 ## Using the code
@@ -23,7 +26,7 @@ It handles an AWS Lambda function that sends information to the log about an obj
 * Create an AWS lambda function:
   * Name: `<LAMBDA_NAME>`
   * Runtime: `Java 8`
-  * Handler: `example.S3CreationEvent::handleRequest`
+  * Handler: `example.S3EventHandler::handleRequest`
   * Role: `lambda-basic-execution`
   * The triggers:
     * `S3`
@@ -55,7 +58,7 @@ It handles an AWS Lambda function that sends information to the log about an obj
   You should see the next message in the log:
 
   ```bash
-  "Input: <LAMBDA_INPUT>"
+  "S3Event: <LAMBDA_INPUT>"
   "Bucket: <BUCKET_NAME>"
-  "File: <FILE_NAME>"
+  "Object: <FILE_NAME>"
   ```
