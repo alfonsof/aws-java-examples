@@ -15,7 +15,6 @@ It handles an AWS Lambda function that sends information to the log about an obj
   *  AWS Java Lambda Support Libraries:
      *  AWS Lambda Java Core Library
      *  AWS Lambda Java Events Library
-  *  AWS SDK for Java (SDK V1)
 
 ## Using the code
 

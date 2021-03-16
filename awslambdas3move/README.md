@@ -11,7 +11,10 @@ It handles an AWS Lambda function that moves an object when it appears in a S3 b
 * The code was written for:
  
   *  Java 8
-  *  Apache Maven (> 3.0)
+  *  Apache Maven 3
+  *  AWS Java Lambda Support Libraries:
+     *  AWS Lambda Java Core Library
+     *  AWS Lambda Java Events Library
   *  AWS SDK for Java (SDK V1)
 
 ## Using the code
