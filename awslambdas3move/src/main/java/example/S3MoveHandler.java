@@ -6,26 +6,21 @@
 
 package example;
 
+import com.amazonaws.services.lambda.runtime.Context;
+import com.amazonaws.services.lambda.runtime.RequestHandler;
+import com.amazonaws.services.lambda.runtime.LambdaLogger;
+import com.amazonaws.services.lambda.runtime.events.S3Event;
+import com.amazonaws.services.lambda.runtime.events.models.s3.S3EventNotification.S3EventNotificationRecord;
 import com.amazonaws.AmazonClientException;
 import com.amazonaws.AmazonServiceException;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 import com.amazonaws.services.s3.model.CopyObjectRequest;
 import com.amazonaws.services.s3.model.DeleteObjectRequest;
-import com.amazonaws.services.s3.event.S3EventNotification.S3EventNotificationRecord;
-import com.amazonaws.services.lambda.runtime.Context;
-import com.amazonaws.services.lambda.runtime.RequestHandler;
-import com.amazonaws.services.lambda.runtime.events.S3Event;
-import com.amazonaws.services.lambda.runtime.LambdaLogger;
 
+public class S3MoveHandler implements RequestHandler<S3Event, String> {
 
-
-
-
-
-public class S3Move implements RequestHandler<S3Event, String> {
-
-    private static final String DESTINATION_BUCKET        = "targetvm";      // Destination bucket name
+    private static final String DESTINATION_BUCKET        = "targetbucket10";      // Destination bucket name
 
     public String handleRequest(S3Event input, Context context) {
         String sourceBucketName;              // Source bucket name
