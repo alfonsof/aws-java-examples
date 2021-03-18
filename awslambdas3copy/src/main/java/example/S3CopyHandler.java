@@ -17,7 +17,7 @@ import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 import com.amazonaws.services.s3.model.CopyObjectRequest;
 
-public class S3Copy implements RequestHandler<S3Event, String> {
+public class S3CopyHandler implements RequestHandler<S3Event, String> {
 
     private static final String DESTINATION_BUCKET        = "targetbucket10";      // Destination bucket name
 
