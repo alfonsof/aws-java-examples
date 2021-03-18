@@ -25,7 +25,7 @@ It handles an AWS Lambda function that moves an object when it appears in a S3 b
 
 * Create a S3 bucket for the source and another S3 bucket for the target.
 
-* Create an IAM Policy: ex. `Policy-VM-buckets`
+* Create an IAM Policy: ex. `Policy-my-buckets`
 
   Content of the IAM policy:
 
@@ -40,7 +40,7 @@ It handles an AWS Lambda function that moves an object when it appears in a S3 b
                   "s3:DeleteObject"
               ],
               "Resource": [
-                  "arn:aws:s3:::sourcevm/*"
+                  "arn:aws:s3:::sourcebucket/*"
               ]
           },
           {
@@ -49,11 +49,10 @@ It handles an AWS Lambda function that moves an object when it appears in a S3 b
                   "s3:PutObject"
               ],
               "Resource": [
-                  "arn:aws:s3:::targetvm/*"
+                  "arn:aws:s3:::targetbucket/*"
               ]
           },
           {
-              "Sid": "Stmt1430872844000",
               "Effect": "Allow",
               "Action": [
                   "cloudwatch:*"
@@ -63,7 +62,6 @@ It handles an AWS Lambda function that moves an object when it appears in a S3 b
               ]
           },
           {
-              "Sid": "Stmt1430872852000",
               "Effect": "Allow",
               "Action": [
                   "logs:*"
@@ -76,15 +74,15 @@ It handles an AWS Lambda function that moves an object when it appears in a S3 b
   }
   ```
 
-* Create a role: `Role-VM-buckets`.
+* Create a role: `Role-my-buckets`.
 
-  This role uses the policy `Policy-VM-buckets`
+  This role uses the policy `Policy-my-buckets`
 
 * Create an AWS lambda function:
   * Name: `<LAMBDA_NAME>`
   * Runtime: `Java 8`
-  * Handler: `example.S3Move::handleRequest`
-  * Role: `Role-VM-buckets`
+  * Handler: `example.S3MoveHandler::handleRequest`
+  * Role: `Role-my-buckets`
   * The triggers:
     * `S3`
       * Bucket: `<SOURCE_BUCKET_NAME>`
@@ -94,10 +92,10 @@ It handles an AWS Lambda function that moves an object when it appears in a S3 b
     * `Amazon CloudWatch`
     * `Amazon CloudWatch Logs`
     * `Amazon S3`
-      * Lambda obtained information from the policy statements: `Managed policy Policy-VM-buckets`:
-        * `s3:GetObject` --> `Allow: arn:aws:s3:::sourcevm/*`
-        * `s3:DeleteObject` --> `Allow: arn:aws:s3:::sourcevm/*`
-        * `s3:PutObject` --> `Allow: arn:aws:s3:::targetvm/*`
+      * Lambda obtained information from the policy statements: `Managed policy Policy-my-buckets`:
+        * `s3:GetObject` --> `Allow: arn:aws:s3:::sourcebucket/*`
+        * `s3:DeleteObject` --> `Allow: arn:aws:s3:::sourcebucket/*`
+        * `s3:PutObject` --> `Allow: arn:aws:s3:::targetbucket/*`
   * Basic Settings for the lambda function:
     * Memory (MB): `1024`
     * Timeout: `10 sec`

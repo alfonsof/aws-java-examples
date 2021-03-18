@@ -19,6 +19,10 @@ import com.amazonaws.services.lambda.runtime.events.S3Event;
 import com.amazonaws.services.lambda.runtime.LambdaLogger;
 
 
+
+
+
+
 public class S3Move implements RequestHandler<S3Event, String> {
 
     private static final String DESTINATION_BUCKET        = "targetvm";      // Destination bucket name
