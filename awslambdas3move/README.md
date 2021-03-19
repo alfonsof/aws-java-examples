@@ -27,12 +27,12 @@ It handles an AWS Lambda function that moves an object when it appears in a S3 b
 
 * Create an IAM Policy: ex. `Policy-my-buckets`
 
-  Content of the IAM policy:
-
   Changing: 
   
   * `sourcebucket` to the name of your source bucket.
   * `targetbucket` to the name of your target bucket.
+
+  Content of the IAM policy:
 
   ```bash
   {
