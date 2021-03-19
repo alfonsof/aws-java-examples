@@ -19,7 +19,7 @@ It handles an AWS Lambda function that moves an object when it appears in a S3 b
 
 ## Using the code
 
-* You can select the destination bucket name changing the value of `DESTINATION_BUCKET` variable in the code.
+* You can select the destination bucket name using an AWS Lambda environment variable: `TARGET_BUCKET`
 
 * Access the AWS console.
 
@@ -104,6 +104,8 @@ It handles an AWS Lambda function that moves an object when it appears in a S3 b
   * Basic Settings for the lambda function:
     * Memory (MB): `1024`
     * Timeout: `10 sec`
+
+* Create the AWS Lambda environment variable `TARGET_BUCKET` and set its value to the name of your target bucket.
 
 * Upload the Java JAR file.
 

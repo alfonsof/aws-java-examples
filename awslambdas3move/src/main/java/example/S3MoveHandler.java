@@ -20,8 +20,6 @@ import com.amazonaws.services.s3.model.DeleteObjectRequest;
 
 public class S3MoveHandler implements RequestHandler<S3Event, String> {
 
-    private static final String DESTINATION_BUCKET        = "targetbucket10";      // Destination bucket name
-
     public String handleRequest(S3Event s3Event, Context context) {
         String sourceBucketName;              // Source bucket name
         String sourceKeyName;                 // Source key name
@@ -40,7 +38,12 @@ public class S3MoveHandler implements RequestHandler<S3Event, String> {
         sourceKeyName = record.getS3().getObject().getKey(); // Name doesn't contain any special characters
 
         // Destination Bucket Name
-        destinationBucketName = DESTINATION_BUCKET;
+        destinationBucketName = System.getenv("TARGET_BUCKET");
+
+        if (destinationBucketName == null || destinationBucketName.isEmpty()) {
+            logger.log("Error: TARGET_BUCKET Lambda environment variable does not exist!!");
+            System.exit(1);
+        }
 
         // Destination File Name
         destinationKeyName = sourceKeyName;
