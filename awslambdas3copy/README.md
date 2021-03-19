@@ -27,12 +27,12 @@ It handles an AWS Lambda function that copies an object when it appears in a S3 
 
 *  Create an IAM Policy: ex. `Policy-my-buckets`
 
+  Content of the IAM policy:
+
   Changing: 
   
-  * `sourcebucket` with the name of your source bucket.
-  * `targetbucket` with the name of your target bucket.
-
-  Content of the IAM policy:
+  * `sourcebucket` to the name of your source bucket.
+  * `targetbucket` to the name of your target bucket.
 
   ```bash
   {
