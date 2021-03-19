@@ -40,13 +40,13 @@ public class S3CopyHandler implements RequestHandler<S3Event, String> {
         // Destination Bucket Name
         destinationBucketName = System.getenv("TARGET_BUCKET");
 
-        // Destination File Name
-        destinationKeyName = sourceKeyName;
-
         if (destinationBucketName == null || destinationBucketName.isEmpty()) {
             logger.log("Error: TARGET_BUCKET Lambda environment variable does not exist!!");
             System.exit(1);
         }
+
+        // Destination File Name
+        destinationKeyName = sourceKeyName;
 
         logger.log("S3Event: " + s3Event);
         logger.log("Source Bucket: " + sourceBucketName + "\n");

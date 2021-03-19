@@ -19,7 +19,7 @@ It handles an AWS Lambda function that copies an object when it appears in a S3 
 
 ## Using the code
 
-* You can select the destination bucket name changing the value of `DESTINATION_BUCKET` variable in the code.
+* You can select the destination bucket name using an AWS Lambda environment variable: `TARGET_BUCKET`
 
 * Access the AWS console.
 
