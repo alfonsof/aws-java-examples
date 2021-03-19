@@ -22,7 +22,7 @@ public class S3MoveHandler implements RequestHandler<S3Event, String> {
 
     private static final String DESTINATION_BUCKET        = "targetbucket10";      // Destination bucket name
 
-    public String handleRequest(S3Event input, Context context) {
+    public String handleRequest(S3Event s3Event, Context context) {
         String sourceBucketName;              // Source bucket name
         String sourceKeyName;                 // Source key name
         String destinationBucketName;         // Destination bucket name
@@ -31,7 +31,7 @@ public class S3MoveHandler implements RequestHandler<S3Event, String> {
         LambdaLogger logger = context.getLogger();
 
         // Get Event Record
-        S3EventNotificationRecord record = input.getRecords().get(0);
+        S3EventNotificationRecord record = s3Event.getRecords().get(0);
 
         // Source Bucket Name
         sourceBucketName = record.getS3().getBucket().getName();
@@ -45,7 +45,7 @@ public class S3MoveHandler implements RequestHandler<S3Event, String> {
         // Destination File Name
         destinationKeyName = sourceKeyName;
 
-        logger.log("Input: " + input);
+        logger.log("S3Event: " + s3Event);
         logger.log("Source Bucket: " + sourceBucketName + "\n");
         logger.log("Source Object: " + sourceKeyName + "\n");
         logger.log("Target Bucket: " + destinationBucketName + "\n");
