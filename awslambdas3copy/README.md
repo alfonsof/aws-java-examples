@@ -27,6 +27,11 @@ It handles an AWS Lambda function that copies an object when it appears in a S3 
 
 *  Create an IAM Policy: ex. `Policy-my-buckets`
 
+  Changing: 
+  
+  * `sourcebucket` with the name of your source bucket.
+  * `targetbucket` with the name of your target bucket.
+
   Content of the IAM policy:
 
   ```bash
@@ -115,3 +120,15 @@ It handles an AWS Lambda function that copies an object when it appears in a S3 
   Copy a file in the source S3 bucket.
 
   The object from the source S3 bucket should be copied to the target S3 bucket.
+
+  You should see the next messages in the log:
+
+    ```bash
+    "S3Event: <LAMBDA_INPUT>"
+    "Source Bucket: <SOURCE_BUCKET_NAME>"
+    "Source Object: <SOURCE_FILE_NAME>"
+    "Target Bucket: <TARGET_BUCKET_NAME>"
+    "Target Object: <TARGET_FILE_NAME>"
+    "Copying object ..."
+    "Copied"
+    ```
