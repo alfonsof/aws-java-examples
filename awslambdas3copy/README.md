@@ -82,7 +82,7 @@ It handles an AWS Lambda function that copies an object when it appears in a S3 
 
   This role uses the policy `Policy-my-buckets`
 
-* Create an AWS lambda function:
+* Create an AWS Lambda function:
   * Name: `<LAMBDA_NAME>`
   * Runtime: `Java 8`
   * Handler: `example.S3CopyHandler::handleRequest`
@@ -102,6 +102,8 @@ It handles an AWS Lambda function that copies an object when it appears in a S3 
   * Basic Settings for the lambda function:
     * Memory (MB): `1024`
     * Timeout: `10 sec`
+
+* Create the AWS Lambda environment variable `TARGET_BUCKET` and set its value to the name of your target bucket.
 
 * Upload the Java JAR file.
 

@@ -19,8 +19,6 @@ import com.amazonaws.services.s3.model.CopyObjectRequest;
 
 public class S3CopyHandler implements RequestHandler<S3Event, String> {
 
-    private static final String DESTINATION_BUCKET        = "targetbucket10";      // Destination bucket name
-
     @Override
     public String handleRequest(S3Event s3Event, Context context) {
         String sourceBucketName;              // Source bucket name
@@ -40,10 +38,15 @@ public class S3CopyHandler implements RequestHandler<S3Event, String> {
         sourceKeyName = record.getS3().getObject().getKey(); // Name doesn't contain any special characters
 
         // Destination Bucket Name
-        destinationBucketName = DESTINATION_BUCKET;
+        destinationBucketName = System.getenv("TARGET_BUCKET");
 
         // Destination File Name
         destinationKeyName = sourceKeyName;
+
+        if (destinationBucketName == null || destinationBucketName.isEmpty()) {
+            logger.log("Error: TARGET_BUCKET Lambda environment variable does not exist!!");
+            System.exit(1);
+        }
 
         logger.log("S3Event: " + s3Event);
         logger.log("Source Bucket: " + sourceBucketName + "\n");
