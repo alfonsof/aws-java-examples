@@ -29,6 +29,11 @@ It handles an AWS Lambda function that moves an object when it appears in a S3 b
 
   Content of the IAM policy:
 
+  Changing: 
+  
+  * `sourcebucket` to the name of your source bucket.
+  * `targetbucket` to the name of your target bucket.
+
   ```bash
   {
       "Version": "2012-10-17",
@@ -117,3 +122,15 @@ It handles an AWS Lambda function that moves an object when it appears in a S3 b
   Copy a file in the source S3 bucket.
 
   The object from the source S3 bucket should be copied to the target S3 bucket and deleted in the source S3 bucket.
+
+  You should see the next messages in the log:
+
+    ```bash
+    "S3Event: <LAMBDA_INPUT>"
+    "Source Bucket: <SOURCE_BUCKET_NAME>"
+    "Source Object: <SOURCE_FILE_NAME>"
+    "Target Bucket: <TARGET_BUCKET_NAME>"
+    "Target Object: <TARGET_FILE_NAME>"
+    "Moving object ..."
+    "Moved"
+    ```
