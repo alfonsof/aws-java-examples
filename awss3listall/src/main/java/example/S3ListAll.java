@@ -5,7 +5,6 @@
 
 package example;
 
-import java.io.IOException;
 import java.util.List;
 import com.amazonaws.AmazonClientException;
 import com.amazonaws.AmazonServiceException;
@@ -16,11 +15,12 @@ import com.amazonaws.services.s3.model.ListObjectsRequest;
 import com.amazonaws.services.s3.model.ObjectListing;
 import com.amazonaws.services.s3.model.S3ObjectSummary;
 
+
 public class S3ListAll {
 
     private static final String REGION = "eu-west-1";      // Region name
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
 
         // Instantiates a client
         AmazonS3 s3client = AmazonS3ClientBuilder.standard()
@@ -62,5 +62,6 @@ public class S3ListAll {
                     "such as not being able to access the network.");
             System.out.println("Error Message: " + ace.getMessage());
         }
+        s3client.shutdown();
     }
 }

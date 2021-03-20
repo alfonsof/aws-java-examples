@@ -7,20 +7,21 @@
 
 package example;
 
-import java.io.IOException;
 import com.amazonaws.AmazonClientException;
 import com.amazonaws.AmazonServiceException;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 
+
 public class S3Delete {
 
     private static final String REGION = "eu-west-1";      // Region name
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         
         if (args.length < 1) {
-            System.out.println("Not enough parameters.\nProper Usage is: java -jar s3delete.jar <BUCKET_NAME>");
+            System.out.println("Not enough parameters.\n" +
+                    "Proper Usage is: java -jar s3delete.jar <BUCKET_NAME>");
             System.exit(1);
         }
 
@@ -32,9 +33,6 @@ public class S3Delete {
         // Instantiates a client
         AmazonS3 s3client = AmazonS3ClientBuilder.standard()
                 .withRegion(REGION).build();
-
-        // You can use this instead of the previous one if you want to delete a bucket in the default region
-        // AmazonS3 s3client = AmazonS3ClientBuilder.defaultClient();
 
         try {
             if (s3client.doesBucketExistV2(bucketName)) {
@@ -63,5 +61,6 @@ public class S3Delete {
                     "such as not being able to access the network.");
             System.out.println("Error Message: " + ace.getMessage());
         }
+        s3client.shutdown();
     }
 }

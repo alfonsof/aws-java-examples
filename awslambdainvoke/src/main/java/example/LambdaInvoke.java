@@ -7,7 +7,6 @@
 
 package example;
 
-import java.io.IOException;
 import com.amazonaws.AmazonClientException;
 import com.amazonaws.AmazonServiceException;
 import com.amazonaws.auth.profile.ProfileCredentialsProvider;
@@ -23,10 +22,11 @@ public class LambdaInvoke {
 
     private static final String REGION = "eu-west-1";      // Region name
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
 
         if (args.length < 1) {
-            System.out.println("Not enough parameters.\nProper Usage is: java -jar lambdainvoke.jar <FUNCTION_NAME>");
+            System.out.println("Not enough parameters.\n" +
+                    "Proper Usage is: java -jar lambdainvoke.jar <FUNCTION_NAME>");
             System.exit(1);
         }
 
@@ -40,18 +40,20 @@ public class LambdaInvoke {
                         " \"firstName\": \"Peter\",\n" +
                         " \"lastName\": \"Parker\"\n" +
                         "}");
+
+        AWSLambda awsLambda = AWSLambdaClientBuilder.standard()
+                .withCredentials(new ProfileCredentialsProvider())
+                .withRegion(REGION).build();
+
         InvokeResult invokeResult = null;
 
         try {
-            AWSLambda awsLambda = AWSLambdaClientBuilder.standard()
-                    .withCredentials(new ProfileCredentialsProvider())
-                    .withRegion(REGION).build();
+            System.out.println("Invoking Lambda function ...");
 
             invokeResult = awsLambda.invoke(invokeRequest);
 
             String ans = new String(invokeResult.getPayload().array(), StandardCharsets.UTF_8);
 
-            //write out the return value
             System.out.println("Lambda return value: " + ans);
 
         } catch (ServiceException e) {
@@ -74,7 +76,7 @@ public class LambdaInvoke {
                     "such as not being able to access the network.");
             System.out.println("Error Message: " + ace.getMessage());
         }
-
+        awsLambda.shutdown();
         System.out.println("Lambda status code: " + invokeResult.getStatusCode());
     }
 }

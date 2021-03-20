@@ -9,7 +9,6 @@
 
 package example;
 
-import java.io.IOException;
 import com.amazonaws.AmazonClientException;
 import com.amazonaws.AmazonServiceException;
 import com.amazonaws.services.s3.AmazonS3;
@@ -17,18 +16,21 @@ import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 import com.amazonaws.services.s3.model.CopyObjectRequest;
 import com.amazonaws.services.s3.model.DeleteObjectRequest;
 
+
 public class S3Move {
 
     private static final String REGION = "eu-west-1";      // Region name
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         String sourceBucketName;       // Source bucket name
         String sourceKey;              // Source key
         String destinationBucketName;  // Destination bucket name
         String destinationKey;         // Destination key
 
         if (args.length < 3) {
-            System.out.println("Not enough parameters.\nProper Usage is: java -jar s3move.jar <SOURCE_BUCKET> <SOURCE_OBJECT> <DESTINATION_BUCKET>");
+            System.out.println("Not enough parameters.\n" +
+                    "Proper Usage is: java -jar s3move.jar " +
+                    "<SOURCE_BUCKET> <SOURCE_OBJECT> <DESTINATION_BUCKET>");
             System.exit(1);
         }
 

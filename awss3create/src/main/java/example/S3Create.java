@@ -7,7 +7,6 @@
 
 package example;
 
-import java.io.IOException;
 import com.amazonaws.AmazonClientException;
 import com.amazonaws.AmazonServiceException;
 import com.amazonaws.services.s3.AmazonS3;
@@ -15,14 +14,16 @@ import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 import com.amazonaws.services.s3.model.CreateBucketRequest;
 import com.amazonaws.services.s3.model.GetBucketLocationRequest;
 
+
 public class S3Create {
 
     private static final String REGION = "eu-west-1";      // Region name
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
 
         if (args.length < 1) {
-           System.out.println("Not enough parameters.\nProper Usage is: java -jar s3create.jar <BUCKET_NAME>");
+           System.out.println("Not enough parameters.\n" +
+                   "Proper Usage is: java -jar s3create.jar <BUCKET_NAME>");
            System.exit(1);
         }
 
@@ -35,14 +36,10 @@ public class S3Create {
         AmazonS3 s3client = AmazonS3ClientBuilder.standard()
                 .withRegion(REGION).build();
 
-        // You can use this instead of the previous one if you want to create a bucket in the default region
-        // AmazonS3 s3client = AmazonS3ClientBuilder.defaultClient();
-
         try {
             if (!s3client.doesBucketExistV2(bucketName)) {
                 System.out.println("Creating bucket ...");
-                // Note that CreateBucketRequest does not specify region. So bucket is
-                // created in the region specified in the client.
+
                 s3client.createBucket(new CreateBucketRequest(
                         bucketName));
                 System.out.println("Created");
@@ -71,5 +68,6 @@ public class S3Create {
                     "such as not being able to access the network.");
             System.out.println("Error Message: " + ace.getMessage());
         }
+        s3client.shutdown();
     }
 }

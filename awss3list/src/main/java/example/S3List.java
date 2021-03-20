@@ -7,7 +7,6 @@
 
 package example;
 
-import java.io.IOException;
 import com.amazonaws.AmazonClientException;
 import com.amazonaws.AmazonServiceException;
 import com.amazonaws.services.s3.AmazonS3;
@@ -16,16 +15,18 @@ import com.amazonaws.services.s3.model.ListObjectsRequest;
 import com.amazonaws.services.s3.model.ObjectListing;
 import com.amazonaws.services.s3.model.S3ObjectSummary;
 
+
 public class S3List {
 
     private static final String REGION = "eu-west-1";      // Region name
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
 
         String bucketName;  // Bucket name
 
         if (args.length < 1) {
-            System.out.println("Not enough parameters.\nProper Usage is: java -jar s3list.jar <BUCKET_NAME>");
+            System.out.println("Not enough parameters.\n" +
+                    "Proper Usage is: java -jar s3list.jar <BUCKET_NAME>");
             System.exit(1);
         }
 
@@ -70,5 +71,6 @@ public class S3List {
                     "such as not being able to access the network.");
             System.out.println("Error Message: " + ace.getMessage());
         }
+        s3client.shutdown();
     }
 }

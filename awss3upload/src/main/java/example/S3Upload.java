@@ -10,24 +10,26 @@
 package example;
 
 import java.io.File;
-import java.io.IOException;
 import com.amazonaws.AmazonClientException;
 import com.amazonaws.AmazonServiceException;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 import com.amazonaws.services.s3.model.PutObjectRequest;
 
+
 public class S3Upload {
 
     private static final String REGION = "eu-west-1";      // Region name
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args)  {
         String bucketName;              // Bucket name
         String keyName;                 // Key name, it is the object name
         String localFileName;           // Upload local file name
 
         if (args.length < 3) {
-            System.out.println("Not enough parameters.\nProper Usage is: java -jar s3upload.jar <BUCKET_NAME> <OBJECT_NAME> <LOCAL_FILE_NAME>");
+            System.out.println("Not enough parameters.\n" +
+                    "Proper Usage is: java -jar s3upload.jar " +
+                    "<BUCKET_NAME> <OBJECT_NAME> <LOCAL_FILE_NAME>");
             System.exit(1);
         }
 

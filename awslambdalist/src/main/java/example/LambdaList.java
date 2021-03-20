@@ -7,7 +7,6 @@
 
 package example;
 
-import java.io.IOException;
 import com.amazonaws.AmazonClientException;
 import com.amazonaws.AmazonServiceException;
 import com.amazonaws.auth.profile.ProfileCredentialsProvider;
@@ -22,10 +21,11 @@ public class LambdaList {
 
     private static final String REGION = "eu-west-1";      // Region name
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
 
         if (args.length < 1) {
-            System.out.println("Not enough parameters.\nProper Usage is: java -jar lambdalist.jar <FUNCTION_NAME>");
+            System.out.println("Not enough parameters.\n" +
+                    "Proper Usage is: java -jar lambdalist.jar <FUNCTION_NAME>");
             System.exit(1);
         }
 
@@ -33,10 +33,12 @@ public class LambdaList {
 
         System.out.println("Lambda function name: " + functionName);
 
+        AWSLambda awsLambda = AWSLambdaClientBuilder.standard()
+                .withCredentials(new ProfileCredentialsProvider())
+                .withRegion(REGION).build();
+
         try {
-            AWSLambda awsLambda = AWSLambdaClientBuilder.standard()
-                    .withCredentials(new ProfileCredentialsProvider())
-                    .withRegion(REGION).build();
+            System.out.println("Listing Lambda function ...");
 
             GetFunctionConfigurationRequest configRequest = new GetFunctionConfigurationRequest()
                     .withFunctionName(functionName);
@@ -75,5 +77,6 @@ public class LambdaList {
                     "such as not being able to access the network.");
             System.out.println("Error Message: " + ace.getMessage());
         }
+        awsLambda.shutdown();
     }
 }

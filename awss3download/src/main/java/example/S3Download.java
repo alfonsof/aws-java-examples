@@ -9,8 +9,8 @@
 
 package example;
 
-import java.io.File;
 import java.io.FileOutputStream;
+import java.io.File;
 import java.io.IOException;
 import com.amazonaws.AmazonClientException;
 import com.amazonaws.AmazonServiceException;
@@ -19,18 +19,20 @@ import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 import com.amazonaws.services.s3.model.S3Object;
 import com.amazonaws.services.s3.model.S3ObjectInputStream;
 
+
 public class S3Download {
 
     private static final String REGION = "eu-west-1";      // Region name
     private static final int MAX_BUFFER_SIZE = 1024*1000;  // Maximum buffer size for the file
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         String bucketName;            // Source bucket name
         String keyName;               // Key name, it is the object name
         String localFileName;         // Local file name
 
         if (args.length < 3) {
-            System.out.println("Not enough parameters.\nProper Usage is: java -jar s3download.jar <BUCKET_NAME> <OBJECT_NAME> <LOCAL_FILE_NAME>");
+            System.out.println("Not enough parameters.\n" +
+                    "Proper Usage is: java -jar s3download.jar <BUCKET_NAME> <OBJECT_NAME> <LOCAL_FILE_NAME>");
             System.exit(1);
         }
 
@@ -65,6 +67,8 @@ public class S3Download {
             fileOutputStream.close();
             inputStream.close();
             System.out.println("Downloaded");
+        } catch (IOException e) {
+            System.err.println(e.getMessage());
         } catch (AmazonServiceException ase) {
             System.out.println("Caught an AmazonServiceException, " +
                     "which means your request made it " +

@@ -5,7 +5,6 @@
 
 package example;
 
-import java.io.IOException;
 import com.amazonaws.AmazonClientException;
 import com.amazonaws.AmazonServiceException;
 import com.amazonaws.auth.profile.ProfileCredentialsProvider;
@@ -22,14 +21,16 @@ public class LambdaListAll {
     
     private static final String REGION = "eu-west-1";      // Region name
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
 
         ListFunctionsResult functionResult = null;
 
+        AWSLambda awsLambda = AWSLambdaClientBuilder.standard()
+                .withCredentials(new ProfileCredentialsProvider())
+                .withRegion(REGION).build();
+
         try {
-            AWSLambda awsLambda = AWSLambdaClientBuilder.standard()
-                    .withCredentials(new ProfileCredentialsProvider())
-                    .withRegion(REGION).build();
+            System.out.println("Listing Lambda functions ...");
 
             functionResult = awsLambda.listFunctions();
 
@@ -72,5 +73,6 @@ public class LambdaListAll {
                     "such as not being able to access the network.");
             System.out.println("Error Message: " + ace.getMessage());
         }
+        awsLambda.shutdown();
     }
 }
