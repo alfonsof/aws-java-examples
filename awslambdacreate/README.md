@@ -90,6 +90,5 @@ Create an AWS Lambda function.
 
   The Lambda function is created and you should see the messages:
   
-  `Creating Lambda function ...`
-  
-  `Created`
+  * `Creating Lambda function ...`
+  * `Created`
