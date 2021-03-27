@@ -37,7 +37,7 @@ public class LambdaDelete {
                 .withRegion(REGION).build();
 
         try {
-            System.out.println("Deleting Lambda function");
+            System.out.println("Deleting Lambda function ...");
 
             DeleteFunctionRequest delFunc = new DeleteFunctionRequest();
             delFunc.withFunctionName(functionName);
