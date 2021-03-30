@@ -59,6 +59,10 @@ Update an AWS Lambda function.
     set AWS_SECRET_ACCESS_KEY=<your_secret_access_key>
     ```
 
+* The AWS Lambda function to update must already exist.
+
+  You can use the AWS Lambda Function Hello World JSON Java example: [awslambdahellojson](/awslambdahellojson).
+
 * You need a `JAR` or `ZIP` file where the code of the Lambda function is located.
 
   You can use the code obtained from the AWS Lambda Function Hello World JSON Java example: [awslambdahellojson](/awslambdahellojson).
