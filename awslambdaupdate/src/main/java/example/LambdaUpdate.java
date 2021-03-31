@@ -67,7 +67,7 @@ public class LambdaUpdate {
                     .withDescription("Created by the Lambda Java API")
                     .withTimeout(15)
                     .withMemorySize(128);
-            UpdateFunctionConfigurationResult functionConfigurationResponse =
+            UpdateFunctionConfigurationResult functionConfigurationResult =
                                                 awsLambda.updateFunctionConfiguration(functionConfigurationRequest);
 
             // Update Code of Lambda function
@@ -75,11 +75,11 @@ public class LambdaUpdate {
                     .withFunctionName(functionName)
                     .withZipFile(byteBuffer)
                     .withPublish(true);
-            UpdateFunctionCodeResult functionCodeResponse = awsLambda.updateFunctionCode(functionCodeRequest);
+            UpdateFunctionCodeResult functionCodeResult = awsLambda.updateFunctionCode(functionCodeRequest);
 
             System.out.println("Updated");
-            System.out.println("The function ARN (Conf.) is " + functionConfigurationResponse.getFunctionArn());
-            System.out.println("The function ARN (Code) is  " + functionCodeResponse.getFunctionArn());
+            System.out.println("The function ARN (Conf.) is " + functionConfigurationResult.getFunctionArn());
+            System.out.println("The function ARN (Code) is  " + functionCodeResult.getFunctionArn());
 
         } catch (IOException ioe) {
             System.err.println(ioe.getMessage());
