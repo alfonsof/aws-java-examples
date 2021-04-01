@@ -32,7 +32,7 @@ public class LambdaUpdate {
     public static void main(String[] args) {
 
         if (args.length < 4) {
-            System.out.println("Not enough parameters.\n"+
+            System.out.println("Not enough parameters.\n" +
                     "Proper Usage is: java -jar lambdaupdate.jar " +
                     "<FUNCTION_NAME> <FUNCTION_FILE> <FUNCTION_ROLE> <FUNCTION_HANDLER>");
             System.exit(1);
@@ -64,7 +64,7 @@ public class LambdaUpdate {
                     .withRuntime("java8")
                     .withRole(functionRole)
                     .withHandler(functionHandler)
-                    .withDescription("Created by the Lambda Java API")
+                    .withDescription("Updated by the Lambda Java API")
                     .withTimeout(15)
                     .withMemorySize(128);
             UpdateFunctionConfigurationResult functionConfigurationResult =
