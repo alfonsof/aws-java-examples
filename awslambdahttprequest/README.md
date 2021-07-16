@@ -42,6 +42,10 @@ It handles an AWS Lambda function that it is invoked by an http request. It show
   awslambdahttprequest.jar
   ```
 
+* Save the Lambda function.
+
+  It deploys the Lambda function.
+
 * Create an `API Gateway` trigger.
 
   This allows to call the lambda function using an HTTP API.
