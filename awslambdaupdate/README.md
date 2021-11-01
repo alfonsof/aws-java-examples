@@ -73,17 +73,17 @@ Update an AWS Lambda function.
 
 * Run the code.
 
-  You must provide 4 parameter:
+  You must provide 4 parameter, replace the values of:
   
-  * `<FUNCTION_NAME>`      = Lambda function name
-  * `<FUNCTION_FILE>`      = The path to the JAR or ZIP file where the code of the Lambda function is located
-  * `<FUNCTION_ROLE>`      = The role ARN that has Lambda permissions
-  * `<FUNCTION_HANDLER>`   = The fully qualifed method name (Ex: example.Handler::handleRequest)
+  * `<FUNCTION_NAME>`    by Lambda function name.
+  * `<FUNCTION_FILE>`    by path to the JAR or ZIP file where the code of the Lambda function is located.
+  * `<FUNCTION_ROLE>`    by role ARN that has Lambda permissions.
+  * `<FUNCTION_HANDLER>` by fully qualifed method name (Ex: example.Handler::handleRequest).
 
   Run application:
 
   ```bash
-  java -jar awslambdaupdate.jar lambda-name lambda-file lambda-role lambda-handler
+  java -jar awslambdaupdate.jar <FUNCTION_NAME> <FUNCTION_FILE> <FUNCTION_ROLE> <FUNCTION_HANDLER>
   ```
 
   You must use as a function role the ARN.
